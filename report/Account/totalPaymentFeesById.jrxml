@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="totalPaymentFeesById" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5255b2a9-fd85-495e-8c5d-97fadbbd3a94">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="21"/>
+	<parameter name="banner" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{banner}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="memberId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalFeesId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="startDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dueDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalFees" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalPaidFees" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalPendingFees" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tax" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="taxAmountPaid" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="discountAmountPaid" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ledgerName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ledgerTotalFees" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ledgerPaidFees" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ledgerPendingFees" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="Total of total fees" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalFees}]]></variableExpression>
+	</variable>
+	<variable name="Total of total paid fees" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalPaidFees}]]></variableExpression>
+	</variable>
+	<variable name="Total of total pending fees" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalPendingFees}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<image>
+				<reportElement uuid="8be8f593-ea62-4f2b-9a61-2bae62f59180" x="146" y="0" width="500" height="100"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="121" splitType="Stretch">
+			<line>
+				<reportElement uuid="8a478369-b5ab-49ee-bc6e-2bf7b7a64010" x="0" y="11" width="802" height="1"/>
+			</line>
+			<rectangle radius="10">
+				<reportElement uuid="b294548a-17c1-4884-aee5-36b4360eeb45" x="188" y="26" width="389" height="36" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="5d149648-9d81-4cc8-9eac-a56be2ba0d94" x="221" y="26" width="311" height="36"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="24"/>
+				</textElement>
+				<text><![CDATA[Total Fees Details By Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3d82c3cc-c771-4ef5-a5b8-cbc2218d17b8" x="113" y="96" width="75" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Start Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a3fc9562-9c92-447d-9f20-7c2e1e8b58c2" x="188" y="96" width="72" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7d2fea59-ff33-46e8-ac0d-888055ea8480" x="511" y="96" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[End Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="803bdc1c-628a-4fa8-96f9-85f0a72608fc" x="577" y="96" width="63" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2b3b0e70-1d27-4a03-9e2b-2b09d880cf31" x="314" y="96" width="68" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Due Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="43f00ec7-4a78-4554-b389-7f8369fbabfc" x="381" y="96" width="72" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{dueDate}==null)?"-":(new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse($F{dueDate}))) ]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="fafeae76-fe88-4320-a8d6-91dbe1dd48d8" x="188" y="68" width="65" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Member Id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="964b715b-d89c-4671-980c-9064ca3d94dc" x="315" y="67" width="45" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="72e59ebb-92fa-4c0b-8811-2817f1569fe9" x="253" y="68" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{memberId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4704d2fc-9db0-48e4-8c12-2769dc7844af" x="359" y="68" width="173" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="4db22e6e-0fb7-49d9-bf6f-1b14adc03d70" x="90" y="0" width="616" height="39" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="089f7983-440e-4357-9057-74291c7041ba" x="90" y="0" width="145" height="39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ledger Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b106f323-05ca-4e21-bb5f-a1a58b7e5616" x="235" y="0" width="100" height="39"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Package]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e1659b8-317c-4d9a-9c94-74c5969f2aa7" x="453" y="0" width="107" height="37"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Paid Fees]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3cfa7b80-5f16-4f06-8772-cd85c96e832b" x="335" y="0" width="118" height="37"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Fees]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4c95aa8a-f869-496d-8506-04b2506281f8" x="560" y="1" width="133" height="37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Pending Fees]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e5754a4b-2c64-4bbc-814f-a61a2a5168d3" x="90" y="0" width="145" height="27"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ledgerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="31803f8c-1722-4e9d-895e-5b7e9bad5b6a" x="453" y="0" width="107" height="27"/>
+				<box rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPaidFees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="275c09ae-dbe8-4fb6-9744-0dbb0c0df4c4" x="560" y="0" width="133" height="27"/>
+				<box rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPendingFees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ff948d9b-65af-46dd-b000-90f664533bb7" x="335" y="0" width="118" height="27"/>
+				<box rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalFees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="821485dc-fbab-4d72-9e8a-7c6371fc24a7" x="235" y="0" width="100" height="27"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="923e0862-3c97-45ec-b9c1-885e9d144691" x="235" y="0" width="101" height="32"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9864bae5-8978-4a6e-8ff8-4e54da359693" x="336" y="0" width="117" height="32"/>
+				<box rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Total of total fees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ff6b0a7d-46f7-4180-9bac-17f6a7cd6520" x="453" y="0" width="107" height="32"/>
+				<box rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Total of total paid fees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="87aa61b0-2f5c-4e0e-a84f-9a28a8cb3426" x="560" y="0" width="133" height="32"/>
+				<box rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Total of total pending fees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5be5adf6-2533-4b71-9201-e8c26541bea1" x="188" y="54" width="63" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="14df1a8f-5796-4733-81ee-4811d6aedc5a" x="251" y="54" width="63" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{taxAmountPaid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5c6a77d2-83dd-4d49-a96e-777f7c4b5e33" x="434" y="54" width="61" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6b19a6af-682f-41c1-8329-3508f6d2a99d" x="495" y="54" width="46" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{discountAmountPaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2369093e-b984-45ed-b260-a673206db0cc" x="134" y="54" width="54" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tax:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="20fb7098-4740-46ec-998d-b203faa0373b" x="359" y="54" width="75" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discount:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="aeeef1a3-de4c-4857-b8cb-fab4d8b874ad" x="133" y="91" width="69" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Fees:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8dd0849e-2241-4627-a86e-a1716aee1ecf" x="360" y="89" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Paid Fees:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cc18c639-78c8-411d-978a-a4a06dbf06ad" x="577" y="89" width="116" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Pending Fees:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5980e09f-4f09-47ca-885d-e0d076f48242" x="202" y="91" width="69" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalFees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8874abeb-defd-4779-9c23-d66bdd08ed4c" x="460" y="89" width="72" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPaidFees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="44f9b6b6-4938-4c99-a733-940c71464528" x="693" y="89" width="50" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPendingFees}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

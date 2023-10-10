@@ -1,0 +1,131 @@
+a#tabmenuLink {display:none;}
+
+/* main menu
+--------------------------------------------*/
+ul#tabmenu
+{
+    width:100%;
+    margin: 0; /*If the menu has a width, this "margin:0 auto;" makes the menu center-aligned. You can remove it for left-alignment, or change it to "margin-left:auto; margin-right:0;" for right-alignment.*/
+    text-align:center;
+    list-style:none;
+    padding:0;
+    font-size:0;
+    position:relative;
+}
+ul#tabmenu:after
+{
+    content:'.'; height: 0; clear: both; display: block; visibility: hidden;
+}
+        
+ul#tabmenu li
+{
+    display:inline;
+    list-style:none; padding:0;margin: 0;
+}
+        
+/*Main menu links*/
+ul#tabmenu li a
+{
+    letter-spacing:normal;
+    color:#555;
+    padding:0 15px;
+    line-height:24px;
+    font-size:15px;
+    font-weight:normal;
+    font-family:Arial;
+    text-decoration:none;
+    display:inline-block; 
+    
+    outline:0;
+    
+    border:none;
+    border-bottom:none;
+    background:none;
+    position:relative;
+    top:1px;
+    z-index:4;  
+    
+}
+/* If you've set the menu's javascript file with { preview:false }, you may want to specify the following hovered tab styles     
+ul#tabmenu li a:hover {
+    color: red;
+    background: black;
+}*/
+
+ul#tabmenu li.active a
+{
+    padding-bottom:1px;
+    background: none;
+    color:#ea8000;
+    text-shadow:0.1px 0.1px 0.1px #555;
+}
+
+/* You can set active tab's style when hovered
+ul#tabmenu li.active a:hover {
+    color:green;
+}*/
+        
+/* Secondary level sub-menu
+----------------------------------------------------------*/
+ul#tabmenu li.active ul, ul#tabmenu>li:first-child>ul
+{
+    display:block;
+    text-align:center;
+    margin:0;
+    padding:0;
+    border:1px solid #DEE2E9;border-top:1px solid #C6CDD8;    
+    float:left;
+    width:100%;
+    z-index:3;
+    box-sizing:content-box;
+    border-radius:3px;
+}
+        
+ul#tabmenu li ul
+{
+    display: none;
+    letter-spacing:normal;
+    background:none;
+}    
+ul#tabmenu li li
+{
+    margin: 0;
+}
+     
+/*Sub-menu links*/
+ul#tabmenu ul li a
+{
+    color:#555;
+    padding:0 10px; 
+    font-size:13px;
+    font-weight:normal;
+    font-family:Arial;
+    line-height:30px;
+    margin: 0; border: 0; top: 0;
+    background: transparent;
+}
+ul#tabmenu li.active li a {
+    color:rgb(10,10,250);
+    border: 0;
+    background: transparent;
+}
+ul#tabmenu li.active li a:hover {
+    color:rgb(10,10,250);
+    border: 0;
+    background: transparent;
+}
+
+ul#tabmenu ul li.subActive a, ul#tabmenu ul li a:hover
+{
+    /* text-decoration: underline; */
+    color:rgb(10,10,250);
+    text-shadow:1px 1px 1px #111;
+}
+
+ul#tabmenu li.dummy {margin:0;}
+ul#tabmenu li.dummy a
+{
+    padding:0;margin:0;border:0;
+    padding-bottom:1px;    
+    width:1px;/* Set it 0 if not template 1 */ 
+}

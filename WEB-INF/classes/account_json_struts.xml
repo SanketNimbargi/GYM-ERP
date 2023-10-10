@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="account-json" extends="json-default">
+
+		<!-- *********************** account AJAX Actions *********************** -->
+			<!-- Fetch Package Details for Make Payment -->
+			<action name="fetchPackageFees" class="com.om.account.action.MakePaymentAjaxAction" method="fetchPackageFees">
+				<result type="json"></result>
+			</action>
+			
+			<!-- Fetch Package Details for Make Payment -->
+			<action name="fetchSelectedPackageDetails" class="com.om.account.action.MakePaymentAjaxAction" method="fetchSelectedPackageDetails">
+				<result type="json"></result>
+			</action>
+			
+			<!-- Fetch Payment Details for Make Payment -->
+			<action name="fetchMemberPaymentDetails" class="com.om.account.action.MakePaymentAjaxAction" method="fetchMemberPaymentDetails">
+				<result type="json"></result>
+			</action>
+			<!-- Fetch Payment Details for Update Payment -->
+			<action name="fetchMemberPaymentUpdateDetails" class="com.om.account.action.MakePaymentAjaxAction" method="fetchMemberPaymentUpdateDetails">
+				<result type="json"></result>
+			</action>
+			
+			<!-- Fetch Ledger Package Detais -->
+			<action name="fetchLedgerPackageFees" class="com.om.account.action.AssignPackageFeesAjax" method="fetchLedgerPackageFees">
+				<result type="json"></result>
+			</action>
+		<!-- ********************************************************* -->
+
+          <action name="fetchMonths" class="com.om.account.action.FetchMonthsAjaxAction" method="fetchMonths">
+				<result type="json"></result>
+			</action>
+			<!--******************************Fetching member details With Receipt Id***********************************-->
+			<action name="fetchMemberDetailsWithreceipt" class="com.om.account.action.PaymentReciept" method="fetchMemberDetailsWithreceipt">
+				<result type="json"></result>
+			</action>
+			<!--******************************Fetching member details With Final Receipt Id***********************************-->
+			<action name="fetchMemberDetailsWithFinalreceipt" class="com.om.account.action.PaymentReciept" method="fetchMemberDetailsWithFinalreceipt">
+				<result type="json"></result>
+			</action>
+				<!-- *********************** Fetch audit details  ********************** -->
+			<action name="fetchMemberList" class="com.om.account.action.GymAuditReportAction" method="fetchMemberList">
+				<result type="json"></result>
+			</action>
+			<action name="fetchMemberPendingFeesList" class="com.om.account.action.GymAuditReportAction" method="fetchMemberPendingFeesList">
+				<result type="json"></result>
+			</action>
+			<!-- *********************fetch Package Month******************* -->
+			<action name="fetchSelectedPackageMonth" class="com.om.account.action.AssignPackageFeesAjax" method="fetchSelectedPackageMonth">
+			<result type="json"></result>
+			</action>
+			<action name="checkReciptIdExist" class="com.om.account.action.MakePaymentAjaxAction" method="checkReciptIdExist">
+			<result type="json"></result>
+			</action>
+	</package>
+</struts>

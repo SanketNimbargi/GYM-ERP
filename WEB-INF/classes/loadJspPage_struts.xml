@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+   <!--  This xml file not used -->
+	<package name="loadJspPage_struts" extends="login">		
+			<!--loadEnquiry.tiles Form on menu action -->
+		<action name="loadEnquiry" class="com.om.member.action.EnquiryAction"
+			method="enquiry">
+			<result name="success">/jsp/Member/enquiry.jsp</result>
+		</action>	
+		<action name="loadMakePaymentPage" class="com.om.account.action.MakePaymentAction" method="openMakePayment">
+			<result name="success">/jsp/Account/makePayment.jsp</result>
+		</action>
+	</package>
+</struts>

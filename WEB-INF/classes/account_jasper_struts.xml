@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="account-jasper" extends="jasperreports-default">
+
+		<!-- **************** Save Member Fee Details and print Receipt ****************** -->
+		<action name="printSavedFinalReceipt" class="com.om.account.action.FeeReceiptReportAction"
+			method="printSavedReceipt">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/feeReceipt.jasper</param>
+				<param name="dataSource">feeReceiptList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>			
+		</action>
+
+		<!-- **************** Save Member Fee Details and print Advance Receipt ****************** -->
+		<action name="printSavedAdvanceReceipt" class="com.om.account.action.FeeReceiptReportAction"
+			method="printSavedAdvanceReceipt">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/feeAdvanceReceipt.jasper</param>
+				<param name="dataSource">feeReceiptList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- **************** Fee Receipt ****************** -->
+		<action name="printReceipt" class="com.om.account.action.FeeReceiptReportAction"
+			method="printReceipt">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/feeReceipt.jasper</param>
+				<param name="dataSource">feeReceiptList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+
+	<!-- **************** Print Previous Fee Receipt ****************** -->
+	<!-- Final -->
+		<action name="printPreviousFinalReceipt" class="com.om.account.action.FeeReceiptReportAction"
+			method="printPreviousReceipt">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/feeReceipt.jasper</param>
+				<param name="dataSource">feeReceiptList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	<!-- Advance -->	
+		<action name="printPreviousAdvanceReceipt" class="com.om.account.action.FeeReceiptReportAction"
+			method="printPreviousReceipt">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/feeAdvanceReceipt.jasper</param>
+				<param name="dataSource">feeReceiptList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- **************** Expense Details Between Date ****************** -->
+		<action name="printexpenseDetailsByDate" class="com.om.account.action.ExpensesReportAction"
+			method="printexpenseDetailsByDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/expenseDetailsByDate.jasper</param>
+				<param name="dataSource">expenseDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+
+		<!-- **************** Expense Details By One Date ****************** -->
+		<action name="printexpenseDetailsByoneDate" class="com.om.account.action.ExpensesReportAction"
+			method="printexpenseDetailsBySingleDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/expenseDetailsAll.jasper</param>
+				<param name="dataSource">expenseDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+
+		<!-- ****************Payment Details By Single Date ****************** -->
+		<action name="printpaymentDetailsByoneDate" class="com.om.account.action.PaymentReportAction"
+			method="printpaymentDetailsByoneDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/paymentDetailsByoneDate.jasper</param>
+				<param name="dataSource">paymentDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+
+		<!-- **************** payment Details Between Date ****************** -->
+		<action name="printpaymentDetailsBetweenDate" class="com.om.account.action.PaymentReportAction"
+			method="printpaymentDetailsBetweenDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/paymentDetailsBetweenDate.jasper</param>
+				<param name="dataSource">paymentDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+
+		<!-- **************** Total Pending Fees Details ****************** -->
+		<action name="totalPendingFees" class="com.om.account.action.PaymentReportAction"
+			method="printtotalPendingFees">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/totalPendingFees.jasper</param>
+				<param name="dataSource">paymentDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+
+		<!-- **************** Total Fees Details By Id ****************** -->
+		<action name="totalprintpaymentDetailsById" class="com.om.account.action.PaymentReportAction"
+			method="printtotalpaymentDetailsById">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/totalFeeDetailsOfMember.jasper</param>
+				<param name="dataSource">paymentDetails</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+			<result name="nodata" type="redirectAction">totalpaymentDetailsById</result>
+		</action>
+
+		<!-- **************** Total Fees Details By Id ****************** -->
+		<action name="auditReportPrintAction" class="com.om.account.action.GymAuditReportAction"
+			method="auditReportPrintAction">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/auditReport.jasper</param>
+				<param name="dataSource">auditReportList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- **************** Pending Fees Audit Report ****************** -->
+		<action name="pendingAuditReportPrintAction" class="com.om.account.action.GymAuditReportAction"
+			method="pendingAuditReportPrintAction">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/pendingAuditReport.jasper</param>
+				<param name="dataSource">auditDataList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- **************** Payment Tracking Report ****************** -->
+		<action name="paymentUpdateTrackReport" class="com.om.account.action.GymAuditReportAction"
+			method="paymentUpdateTrackReport">
+			<result name="success" type="jasper">
+				<param name="location">report/Account/paymentUpdateTrackReport.jasper</param>
+				<param name="dataSource">paymentTrck</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- *******************printDebitedAmountDetailsByDate************* -->
+		<action name="printDebitedAmountDetailsByDate" class="com.om.account.action.BankJournalReportAction"
+			method="printDebitedAmountDetailsByDate">
+			<result name="success" type="jasper">
+				<param name="location">/report/Account/DebitedAmountDetailsByDate.jasper</param>
+				<param name="dataSource">debitDetailList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- *******************printDebitedAmountDetailsByDate************* -->
+		<action name="printCreditAmountDetailsByDate" class="com.om.account.action.BankJournalReportAction"
+			method="printCreditAmountDetailsByDate">
+			<result name="success" type="jasper">
+				<param name="location">/report/Account/CreditAmountDetailsByDate.jasper</param>
+				<param name="dataSource">creditDetailList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		<!-- *******************printDebitedAmountDetailsByDate************* -->
+		<action name="printRevenueDetailsReport" class="com.om.account.action.PaymentReportAction"
+			method="printRevenueDetailsReport">
+			<result name="success" type="jasper">
+				<param name="location">/report/Account/revenueDetailsBetweenDate.jasper</param>
+				<param name="dataSource">revenueDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+			<!-- ******************* print packagewise payment report between dates ************* -->
+		<action name="printPackagewisePaymentReport" class="com.om.account.action.PaymentReportAction"
+			method="printPackagewisePaymentReport">
+			<result name="success" type="jasper">
+				<param name="location">/report/Account/paymentDetailsBetweenDatePackagewise.jasper</param>
+				<param name="dataSource">packagewisePaymentList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

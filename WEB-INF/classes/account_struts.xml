@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<include file="account_json_struts.xml"></include>
+	<include file="account_jasper_struts.xml"></include>
+
+	<package name="account" extends="login">
+		
+		<!-- ************************** Account Actions ***************************** -->
+		 	<!-- ***********************assign Ledger package Amount form on menu bar action ********************** -->
+			<action name="assignPackageFees" class="com.om.account.action.AssignPackageFeesAction" method="assignPackageFees">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/assignPackageFees.tiles</result>
+			</action>
+			<!-- *********************** save ledger package action******************** -->
+			<action name="saveLedgerPackageFees" class="com.om.account.action.AssignPackageFeesAction" method="saveLedgerPackageFees">
+				<interceptor-ref name="loginStack" /> 
+				<interceptor-ref name="token"/>
+				<result name="success" type="tiles">/assignPackageFees.tiles</result>
+				<result name="invalid.token" type="tiles">/assignPackageFees.tiles</result>
+			</action>
+		<!-- ****************************************************************************** -->		
+		
+		<!-- ****************************** Make Payment Action  ************************************* -->		
+			<!-- *********************** Open Make Payment form on menu bar action ********************** -->
+			<action name="openMakePayment" class="com.om.account.action.MakePaymentAction" method="openMakePaymentPage">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/makePayment.tiles</result>
+				<result name="openUpdateTax" type="redirectAction">openUpdateTaxWindow</result>
+				<result name="openUpdateRegistrationFee" type="redirectAction">openUpdateRegistrationFee</result>
+				<result name="error">/error.jsp</result>
+			</action>
+			<action name="afterRegOpenMakePayment" class="com.om.account.action.MakePaymentAction" method="openMakePayment">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/makePayment.tiles</result>
+				<result name="openUpdateTax" type="redirectAction">openUpdateTaxWindow</result>
+				<result name="openUpdateRegistrationFee" type="redirectAction">openUpdateRegistrationFee</result>
+				<result name="error">/error.jsp</result>
+			</action>
+			
+			<!-- ****************print Previous Final and Advance Payment  Receipt ****************** -->
+			<action name="makePayment" class="com.om.account.action.MakePaymentAction" method="makePayment">
+				<interceptor-ref name="loginStack" /> 
+				<interceptor-ref name="token"/>
+				<interceptor-ref name="execAndWait" />
+				<!-- makeFinalPayment-->
+				<result name="wait">wait.jsp</result>
+				<result name="final" type="redirectAction">printSavedFinalReceipt</result>
+				<!-- makeAdvancePayment -->
+				<result name="advance" type="redirectAction">printSavedAdvanceReceipt</result>
+				
+				<result name="prevfinal" type="redirectAction">printPreviousFinalReceipt</result>
+				<!-- makePrevAdvancePayment -->
+				<result name="prevadvance" type="redirectAction">printPreviousAdvanceReceipt</result>
+				<result name="invalid.token" type="tiles">/makePaymentForm.tiles</result>
+				<result name="error" type="redirectAction">home</result>
+				<!-- <result name="invalid.token">/jsp/Account/openMakePaymentOrUpdatePaymentForm.jsp</result> --> 
+			</action>	
+		<!-- ****************************** Update Payment Action  ************************************* -->
+			<!-- *********************** Open Update Payment form on menu bar action ********************** -->
+			<action name="openMakePaymentUpdate" class="com.om.account.action.MakePaymentAction" method="openMakePaymentUpdate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/makePaymentUpdate.tiles</result>
+			</action>
+			<!-- **************** Update Payment and print Receipt ****************** -->
+			<action name="updatePaymentDetails" class="com.om.account.action.MakePaymentAction" method="updatePaymentDetails">
+				<interceptor-ref name="loginStack" /> 
+				<interceptor-ref name="token"/>
+				<!-- makeFinalPayment-->
+				<result name="final" type="redirectAction">printSavedFinalReceipt</result>
+				<!-- makeAdvancePayment -->
+				<result name="advance" type="redirectAction">printSavedAdvanceReceipt</result>
+				<!-- <result name="success" type="redirectAction">printSavedReceipt</result> -->
+				<result name="invalid.token" type="tiles">/makePaymentUpdate.tiles</result>
+			</action>
+		<!-- *********************** Open Make Payment form on menu bar action ********************** -->
+			<action name="openGymAuditReport" class="com.om.account.action.GymAuditReportAction" method="openGymAuditReport">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/gymAudit.tiles</result>
+			</action>
+			
+			<action name="openPendingFeesOnlyReport" class="com.om.account.action.GymAuditReportAction" method="openPendingFeesOnlyReport">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/openPendingFeesOnlyReport.tiles</result>
+			</action>
+			
+			<action name="paymentUpdateTrack" class="com.om.account.action.GymAuditReportAction" method="paymentUpdateTrack">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/paymentUpdateTrack.tiles</result>
+			</action>
+			
+			
+			<!-- ***********************Fetch audit details ********************** -->
+			<!-- <action name="fetchMemberList" class="com.om.account.action.GymAuditReportAction" method="fetchMemberList">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/gymAudit.tiles</result>
+			</action> -->	
+			
+		<!--***************** Month package form on menu Bar************************************* -->
+			<action name="packageMonth" class="com.om.account.action.PackageMonthAction" method="packageMonth">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/packageMonth.tiles</result>
+			</action>
+			<!--*****************save Month package************************************* -->
+			<action name="savePackageMonthAction" class="com.om.account.action.PackageMonthAction" method="savePackageMonthAction">
+				<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/packageMonth.tiles</result>
+				<result name="invalid.token" type="tiles">/packageMonth.tiles</result>
+			</action>
+			<!--*****************update Month package************************************* -->
+			<action name="updatePackageMonthAction" class="com.om.account.action.PackageMonthAction" method="updatePackageMonthAction">
+				<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/packageMonth.tiles</result>
+				<result name="invalid.token" type="tiles">/packageMonth.tiles</result>
+			</action>
+		<!--*********************************************************************************  -->
+		
+		
+		
+		<!--*********************** Ledger Master  action on menu bar action *********************************  -->
+			<action name="ledgerMaster" class="com.om.account.action.LedgerMasterAction" method="ledgerMaster">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/ledgerMaster.tiles</result>
+			</action>
+		
+			<!--*********************** Save Ledger Master  action*********************************  -->
+			<action name="saveLedgerMaster" class="com.om.account.action.LedgerMasterAction" method="saveLedgerMaster">
+				<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/ledgerMaster.tiles</result>
+				<result name="invalid.token" type="tiles">/ledgerMaster.tiles</result>
+			</action>
+			
+			<!--*********************** update Ledger Master  action*********************************  -->
+			<action name="updateLedgerMaster" class="com.om.account.action.LedgerMasterAction" method="updateLedgerMaster">
+				<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/ledgerMaster.tiles</result>
+				<result name="invalid.token" type="tiles">/ledgerMaster.tiles</result>
+			</action>
+			
+			<!--*********************** delete Ledger Master  action*********************************  -->
+			<action name="deleteLedgerMaster" class="com.om.account.action.LedgerMasterAction" method="deleteLedgerMaster">
+				<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/ledgerMaster.tiles</result>
+				<result name="invalid.token" type="tiles">/ledgerMaster.tiles</result>
+			</action>
+		<!--*****************************************************************************  -->
+		
+		
+		
+		<!--*******************Expenses Actions***************************** -->
+			<!-- open expense master on menu bar action -->
+			<action name="expenseMaster" class="com.om.account.action.ExpensesMasterAction" method="openExpensesMaster">
+			 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/expenseMaster.tiles</result>
+			</action>
+			<!-- add expense amount action -->
+			<action name="addExpenseDetails" class="com.om.account.action.ExpensesMasterAction" method="addExpenseDetails">
+			<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/expenseMaster.tiles</result>
+				<result name="invalid.token" type="tiles">/expenseMaster.tiles</result>
+			</action>
+			<!-- Update expense amount action -->
+			<action name="updateExpenseDetails" class="com.om.account.action.ExpensesMasterAction" method="updateExpenseDetails">
+			<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/expenseMaster.tiles</result>
+				<result name="invalid.token" type="tiles">/expenseMaster.tiles</result>
+			</action>
+			<!-- Delete expense amount action -->
+			<action name="deleteExpenseDetails" class="com.om.account.action.ExpensesMasterAction" method="deleteExpenseDetails">
+		<interceptor-ref name="loginStack" /> 
+				  <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/expenseMaster.tiles</result>
+				<result name="invalid.token" type="tiles">/expenseMaster.tiles</result>
+			</action>
+		<!-- ******************************************************************************  -->
+		
+		<!-- ************************** Report Actions ***************************** -->
+			<!-- open expense Details By Date -->
+			<action name="expenseDetailsByDate" class="com.om.account.action.ExpensesReportAction"
+				method="openExpensesDetailsByDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/expenseDetailsByDate.tiles</result>
+			</action>
+			<!-- open expense Details By Single Date -->
+			<action name="expenseDetailsByoneDate" class="com.om.account.action.ExpensesReportAction"
+				method="openExpensesDetailsByOneDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/expenseDetailsByoneDate.tiles</result>
+			</action>
+			<!-- open Payment Details By Single Date -->
+			<action name="paymentDetailsByoneDate" class="com.om.account.action.PaymentReportAction"
+				method="openpaymentDetailsByoneDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/paymentDetailsByoneDate.tiles</result>
+			</action>
+			<!-- open Payment Details Between Date -->
+			<action name="paymentDetailsBetweenDate" class="com.om.account.action.PaymentReportAction"
+				method="openpaymentDetailsBetweenDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/paymentDetailsBetweenDate.tiles</result>
+			</action>
+			
+			<!-- open Total Payment Details By Id -->
+			<action name="totalpaymentDetailsById" class="com.om.account.action.PaymentReportAction"
+				method="opentotalpaymentDetailsById">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/totalpaymentDetailsById.tiles</result>
+			</action>
+			
+			<!-- Fees Receipt By Receipt id -->
+			<action name="receiptByReceiptId" class="com.om.account.action.FeeReceiptReportAction" method="receiptByReceiptId">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/receiptByReceiptId.tiles</result>
+			</action>
+		<!-- *************************openUpdateTaxWindow*****************************************************  -->
+			<action name="openUpdateTaxWindow" class="com.om.account.action.UpdateTaxAction" method="openUpdateTaxWindow">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/updateTax.tiles</result>
+			</action>
+			<!-- *************************saveUpdate TaxWindow*****************************************************  -->
+			<action name="saveUpdateTax" class="com.om.account.action.UpdateTaxAction" method="saveUpdateTax">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/updateTax.tiles</result>
+			</action>
+
+			<!-- ***********************openUpdateRegistrationFee******************************************* -->
+			<action name="openUpdateRegistrationFee" class="com.om.account.action.UpdateRegistrationAction" method="openUpdateRegistrationFee">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/updateRegistrationFee.tiles</result>
+			</action>
+				<!-- ***********************SaveUpdateRegistrationFee******************************************* -->
+			<action name="saveRegistrationFee" class="com.om.account.action.UpdateRegistrationAction" method="saveRegistrationFee">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/updateRegistrationFee.tiles</result>
+			</action>
+			
+			
+
+			
+			<!--*************************Bank Journal Details****************************************************  -->
+			<action name="openBankJournalDetails" class="com.om.account.action.BankJournalDetailsAction" method="openBankJournalDetails">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/openBankJournalDetails.tiles</result>
+			</action>
+			<action name="debitAction" class="com.om.account.action.BankJournalDetailsAction" method="debitAction">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="redirectAction">openBankJournalDetails</result>
+			</action>
+			<action name="creditAction" class="com.om.account.action.BankJournalDetailsAction" method="creditAction">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="redirectAction">openBankJournalDetails</result>
+			</action>
+			<!-- ********************Report For Bank Journal Details********************* -->
+			<!-- *******************open Debit Amount by Date*************************** -->
+			<action name="DebitAmountReportByDate" class="com.om.account.action.BankJournalReportAction"
+				method="openDebitAmountReportByDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/DebitedDetailsByDate.tiles</result>
+			</action>
+			<!-- *******************open Credit Amount by Date*************************** -->
+			<action name="CreditAmountReportByDate" class="com.om.account.action.BankJournalReportAction"
+				method="CreditAmountReportByDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/CreditDetailsByDate.tiles</result>
+			</action>
+			
+			<!-- open RevenueReport-->
+			<action name="openRevenueReport" class="com.om.account.action.PaymentReportAction"
+				method="openRevenueReport">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/revenueReport.tiles</result>
+			</action>
+			
+			<!-- *******************Packagewise Payment details between dates *************************** -->
+			<action name="packagewisePaymentReport" class="com.om.account.action.PaymentReportAction"
+				method="openPackagewisePaymentReport">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/packagewisePaymentReport.tiles</result>
+			</action>
+	</package>
+</struts>

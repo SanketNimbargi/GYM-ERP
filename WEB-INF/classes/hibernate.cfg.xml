@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- <property name="connection.url">jdbc:mysql://202.66.175.242:3306/a1bf5e956_</property>
+		<property name="connection.username">farming_animal</property>
+		<property name="connection.password">farming_animal1#F</property> -->
+		
+		 <property name="connection.url">jdbc:mysql://localhost:3306/gymmgmt</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property> 
+
+		<!-- JDBC connection pool (use the built-in) -->
+		 <property name="connection.pool_size">1</property> 
+		<!-- ========================================================== -->
+		 <!-- <property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.max_size">5</property> -->
+		<!-- <property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.max_statements">50</property>  -->
+		
+		<!-- =============================================================== -->
+
+		<!-- SQL dialect -->
+		<property name="dilect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+
+		<property name="format_sql">true</property>
+		<property name="use_sql_comments">update</property>
+		
+		<!-- *********************** LOGIN MAPPING *********************** -->
+			<mapping class="com.om.login.model.User" />
+			<mapping class="com.om.login.model.UserRole" />
+		<!-- *********************** MEMBER MAPPING *********************** -->
+			<mapping class="com.om.member.model.MemberRegistrationModel"/>
+			<mapping class="com.om.member.model.AttendanceModel"/>
+			<mapping class="com.om.member.model.EnquiryModel"/>
+			<mapping class="com.om.member.model.AppointmentModel"/>
+			<mapping class="com.om.member.model.MemberMedicalHistoryModel" />
+			<mapping class="com.om.member.model.MemberMeasurementCardModel"/>
+			<mapping class="com.om.member.model.FitnessGoalModel"/>
+			<mapping class="com.om.member.model.MemberPendingFeesDiscussionModel"/>
+			<mapping class="com.om.member.model.ActiveUserDiscussionModel"/>
+			<mapping class="com.om.member.model.MembershipTransformationModel"/>
+		<!-- *********************** MEMBER REPORT MAPPING *********************** -->
+		
+		<!-- ***********************MAPPING *********************** -->
+		
+		<!-- *********************** PERSONAL TRAINER MAPPING *********************** -->
+			<mapping class="com.om.pt.model.PersonalTrainerModel" />
+		
+		<!-- *********************** PERSONAL TRAINER REPORT MAPPING *********************** -->
+		
+		<!-- *********************** ACCOUNT MAPPING *********************** -->
+			<mapping class="com.om.account.model.PackageMonthModel"/>
+			<mapping class="com.om.account.model.LedgerModel"/>
+			<mapping class="com.om.account.model.LedgerPackageModel"/>
+			<mapping class="com.om.account.model.LedgerFees"/>
+			<mapping class="com.om.account.model.LedgerFeesPaid"/>
+			<mapping class="com.om.account.model.TransactionDetails"/>
+			<mapping class="com.om.account.model.ExpensesMasterModel"/>
+			<mapping class="com.om.account.model.TaxModel"/>
+
+			<mapping class="com.om.account.model.RegistrationFeeModel"/>
+			<mapping class="com.om.account.model.RegistrationFeeTakenModel"/>
+
+			<mapping class="com.om.account.model.BankJournalModel"/>
+			<mapping class="com.om.account.model.MemberPaymentTrack"/>
+			
+		<!-- *********************** ACCOUNT REPORT MAPPING *********************** -->
+		
+		<!-- *********************** Email  Setting MAPPING *********************** -->
+ 			<mapping class="com.om.common.model.EmailSettingModel"/>
+ 			
+ 		<!-- *********************** DAILY MESSAGE SEND WHO SHOULD GIVE FEES WITHIN FIVE DAYS FROM THE DAY *********************** -->
+ 			<mapping class="com.om.common.model.DailyMessageStatus"/>
+ 			
+ 			
+ 		<!-- *********************** Essl  Setting MAPPING *********************** -->
+ 			<mapping class="com.om.org.model.EsslModel"/>
+ 			
+ 			<!-- *********************** MemberBodyDetailsModel *********************** -->
+ 			<mapping class="com.om.member.model.MemberBodyDetailsModel"/>
+	</session-factory>
+</hibernate-configuration>

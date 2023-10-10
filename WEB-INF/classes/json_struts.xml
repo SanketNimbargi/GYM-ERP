@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="common-json" extends="json-default">	
+	
+	
+		<!-- Save Essl Setting -->
+		<action name="fetchEsslSettingAction" class="com.om.org.action.EsslSettingAction" method="fetchEsslSettingAction">
+			<result type="json"></result>
+		</action>
+		<!-- Fetch Essl Setting -->
+		<action name="saveEsslSettingAction" class="com.om.org.action.EsslSettingAction" method="saveEsslSettingAction">
+			<result type="json"></result>
+		</action>
+	
+ 		<!-- Refresh Essl Status -->
+		<action name="refreshEsslStatus" class="com.om.org.action.EsslSettingAction" method="refreshEsslStatus">
+			<result type="json"></result>
+		</action>
+		
+		 <!-- Fetch fetchTodayPresentMemberDetailList List -->
+		<action name="fetchTodayPresentMemberDetailList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchTodayPresentMemberDetailList">
+			<result type="json"></result>
+		</action>
+ 		<!-- Fetch fecthanniversaryDayList List -->
+		<action name="fetchAllNotificationList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchAllNotificationList">
+			<result type="json"></result>
+		</action>
+		<!-- Fetch fecthanniversaryDayList List -->
+		<action name="refreshAllNotificationList" class="com.om.common.action.AutocompleterAjaxAction" method="refreshAllNotificationList">
+			<result type="json"></result>
+		</action>
+  		<!-- Fetch fecthanniversaryDayList List -->
+		<action name="fecthenquirytList" class="com.om.common.action.AutocompleterAjaxAction" method="fecthenquirytList">
+			<result type="json"></result>
+		</action>
+		 <!-- Fetch fecthanniversaryDayList List -->
+		<action name="fecthattendanceList" class="com.om.common.action.AutocompleterAjaxAction" method="fecthattendanceList">
+			<result type="json"></result>
+		</action>
+    <!-- Fetch fecthanniversaryDayList List -->
+		<action name="fecthappointmentList" class="com.om.common.action.AutocompleterAjaxAction" method="fecthappointmentList">
+			<result type="json"></result>
+		</action>
+		<!-- *****************Fetch fetchInEnquiredMembers *************** -->
+		<action name="fetchInEnquiredMembers" class="com.om.common.action.AutocompleterAjaxAction" method="fetchInEnquiredMembers">
+			<result type="json"></result>
+		</action>
+		<!-- *****************Fetch fetchInEnquiryCancelMembers *************** -->
+		<action name="fetchInEnquiryCancelMembers" class="com.om.common.action.AutocompleterAjaxAction" method="fetchInEnquiryCancelMembers">
+			<result type="json"></result>
+		</action>
+		
+		
+		<!-- *****************Fetch fetchInactiveMemberList *************** -->
+		<action name="fetchInactiveMemberList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchinactiveMemberList">
+			<result type="json"></result>
+		</action>
+		<!-- *****************Fetch fetchInactiveMemberList *************** -->
+		<action name="fetchInactiveMemberList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchinactiveMemberList">
+			<result type="json"></result>
+		</action>
+         <!-- Fetch fecthanniversaryDayList List -->
+		<action name="fecthanniversaryDayList" class="com.om.common.action.AutocompleterAjaxAction" method="fecthanniversaryDayList">
+			<result type="json"></result>
+		</action>
+        <!-- Fetch fecthbirthDayList List -->
+		<action name="fecthbirthDayList" class="com.om.common.action.AutocompleterAjaxAction" method="fecthbirthDayList">
+			<result type="json"></result>
+		</action>
+         <!-- Fetch fetchpendingFeesList List -->
+		<action name="fetchpendingFeesList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchpendingFeesList">
+			<result type="json"></result>
+		</action>
+		
+		<!-- Fetch fetch cancel  pendingFeesList List -->
+		<action name="fetchCancelPendingFeesList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchCancelPendingFeesList">
+			<result type="json"></result>
+		</action>
+       
+        <!-- Fetch fecthreNewList List -->
+		<action name="fecthreNewList" class="com.om.common.action.AutocompleterAjaxAction" method="fecthreNewList">
+			<result type="json"></result>
+		</action>
+        <!-- Fetch PT Number List -->
+		<action name="fetchPTNumber" class="com.om.common.action.AutocompleterAjaxAction" method="fetchPTNumber">
+			<result type="json"></result>
+		</action>
+        <!-- Fetch Members Number List For Rejoin -->
+		<action name="fetchMemberNumberRejoin" class="com.om.common.action.AutocompleterAjaxAction" method="fetchMemberNumberRejoin">
+			<result type="json"></result>
+		</action>
+		
+        <!-- Fetch Members Name List For Rejoin -->
+		<action name="fetchMembersNamesRejoin" class="com.om.common.action.AutocompleterAjaxAction" method="fetchMembersNamesRejoin">
+			<result type="json"></result>
+		</action>
+		
+		<!-- Fetch Members Name List -->
+		<action name="fetchMembersNames" class="com.om.common.action.AutocompleterAjaxAction" method="fetchMembersNames">
+			<result type="json"></result>
+		</action>
+		
+		<!-- Fetch Members Name List -->
+		<action name="fetchBothMembersNames" class="com.om.common.action.AutocompleterAjaxAction" method="fetchBothMembersNames">
+			<result type="json"></result>
+		</action>
+		
+		
+		<!-- Fetch PT Number List For Renew -->
+		<action name="fetchPTNumberRenew" class="com.om.common.action.AutocompleterAjaxAction" method="fetchPTNumberRenew">
+			<result type="json"></result>
+		</action>
+		
+		<!-- Fetch PT Name List For Renew -->
+		<action name="fetchPTNamesRenew" class="com.om.common.action.AutocompleterAjaxAction" method="fetchPTNamesRenew">
+			<result type="json"></result>
+		</action>
+		<!-- Fetch PT Name List -->
+		<action name="fetchPTNames" class="com.om.common.action.AutocompleterAjaxAction" method="fetchPTNames">
+			<result type="json"></result>
+		</action>
+		
+		
+		<!-- Fetch Enquiry Name List -->
+		<action name="fetchEnquiryNames" class="com.om.common.action.AutocompleterAjaxAction" method="fetchEnquiryNames">
+			<result type="json"></result>
+		</action>
+	
+	<!-- Fetch Address List -->
+		<action name="fetchAddressNames" class="com.om.common.action.AutocompleterAjaxAction" method="fetchAddressNames">
+			<result type="json"></result>
+		</action>
+		<!-- Fetch ReEnquiry Contact No List -->
+		<action name="fetchEnquiryContactNo" class="com.om.common.action.AutocompleterAjaxAction" method="fetchEnquiryContactNo">
+			<result type="json"></result>
+		</action>
+	
+
+<!-- Fetch Member Details List -->
+		<action name="fetchSearchMember" class="com.om.common.action.AutocompleterAjaxAction" method="fetchSearchMember">
+			<result type="json"></result>
+		</action>
+	
+	
+	<!-- Fetch Member Details List -->
+		<action name="fetchSearchMemberBoth" class="com.om.common.action.AutocompleterAjaxAction" method="fetchSearchMemberBoth">
+			<result type="json"></result>
+		</action>
+	
+	
+	<!-- Fetch PT Member Details By BOB List -->
+		<action name="fetchPTMemberByDOB" class="com.om.common.action.AutocompleterAjaxAction" method="fetchPTMemberByDOB">
+			<result type="json"></result>
+		</action>
+	
+	<!-- Fetch PT Renew Member Details By BOB List -->
+		<action name="fetchPTRenewMemberByDOB" class="com.om.common.action.AutocompleterAjaxAction" method="fetchPTRenewMemberByDOB">
+			<result type="json"></result>
+		</action>
+		
+				
+		<!-- Fetch   Member Details By BOB List -->
+		<action name="fetchMemberByDOB" class="com.om.common.action.AutocompleterAjaxAction" method="fetchMemberByDOB">
+			<result type="json"></result>
+		</action>
+		
+			<!-- Fetch   Renew Member Details By BOB List -->
+		<action name="fetchRenewMemberByDOB" class="com.om.common.action.AutocompleterAjaxAction" method="fetchRenewMemberByDOB">
+			<result type="json"></result>
+		</action>
+		<!-- Fetch   Renew Member Details By BOB List -->
+		<action name="fetchMemberListForEmailAction" class="com.om.common.action.SendMemberEmailAction" method="fetchMemberListForEmailAction">
+				<result type="json"></result>				
+		</action>
+		<!-- fetch active member list -->
+		<action name="fetchActiveMemberList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchActiveMemberList">
+				<result type="json"></result>				
+		</action>
+		<!-- fetch active member Follow Up list -->
+		<action name="fetchRegularFollowUp" class="com.om.common.action.AutocompleterAjaxAction" method="fetchRegularFollowUp">
+				<result type="json"></result>				
+		</action>
+		<!-- fetch Pending Fee Follow Up list -->
+		<action name="fetchRegularPendingFeeFollowUp" class="com.om.common.action.AutocompleterAjaxAction" method="fetchRegularPendingFeeFollowUp">
+				<result type="json"></result>				
+		</action>
+		
+		<!-- fetch cancel member list -->
+		<action name="fetchcancelMemberList" class="com.om.common.action.AutocompleterAjaxAction" method="fetchcancelMemberList">
+				<result type="json"></result>				
+		</action>
+		
+		<!-- Send message to all member who should give fees after 5 days -->
+		
+		<action name="sendMessageToMemberSupposedToGiveFees" class="com.om.common.action.SendMessageToMemberSupposedToGiveFees" method="sendDailyMessage">
+				<result type="json"></result>				
+		</action>
+		
+		
+	</package>
+</struts>

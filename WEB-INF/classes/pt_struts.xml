@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<include file="pt_json_struts.xml"></include>
+	<include file="pt_jasper_struts.xml"></include>
+
+	<package name="pt" extends="login">
+		
+		<!-- ************************** Personal Trainer Actions ***************************** -->
+			<!-- Open Personal Trainer Registration Form on menu action -->
+			<action name="personalTrainerRegistration" class="com.om.pt.action.PersonalTrainerAction" method="personalTrainerRegistration">
+				  <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/personalTrainerRegistration.tiles</result>
+			</action>
+			<!-- Save Personal Trainer Registration Details -->
+			<action name="savePersonalTrainerDetails" class="com.om.pt.action.PersonalTrainerAction" method="savePersonalTrainerDetails">
+			    <interceptor-ref name="loginStack" /> 
+			    <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/personalTrainerRegistration.tiles</result>
+			    <result name="invalid.token" type="tiles">/personalTrainerRegistration.tiles</result>
+			</action>
+			
+			<!-- Open Personal Trainer Update Registration Form on menu action -->
+			<action name="personalTrainerUpdate" class="com.om.pt.action.PersonalTrainerAction" method="personalTrainerUpdate">
+				<result name="success" type="tiles">/personalTrainerUpdate.tiles</result>
+				
+			</action>
+			<!-- Update Personal Trainer Registration Details -->
+			<action name="updatePersonalTrainerDetails" class="com.om.pt.action.PersonalTrainerAction" method="updatePersonalTrainerDetails">
+				   <interceptor-ref name="loginStack" /> 
+			    <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/personalTrainerUpdate.tiles</result>
+				<result name="invalid.token" type="tiles">/personalTrainerUpdate.tiles</result>
+			</action> 
+			
+			
+		
+			
+			<!-- Open Personal Trainer Remove Registration Form on menu action -->
+			<action name="personalTrainerReNew" class="com.om.pt.action.PersonalTrainerAction" method="personalTrainerReNew">
+				<result name="success" type="tiles">/personalTrainerReNew.tiles</result>
+			</action> 
+				
+			<!-- ReNew Personal Trainer Registration Details -->
+			<action name="reNewPersonalTrainerDetails" class="com.om.pt.action.PersonalTrainerAction" method="reNewPersonalTrainerDetails">
+			   <interceptor-ref name="loginStack" /> 
+			    <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/personalTrainerReNew.tiles</result>
+				<result name="invalid.token" type="tiles">/personalTrainerReNew.tiles</result>
+			</action>
+			
+			<!-- Remove Personal Trainer Registration Details -->
+			<action name="personalTrainerRemove" class="com.om.pt.action.PersonalTrainerAction" method="personalTrainerRemove">
+				   <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/personalTrainerRemove.tiles</result>
+			</action>
+			<!-- Remove Personal Trainer Registration Details -->
+			<action name="removePersonalTrainerDetails" class="com.om.pt.action.PersonalTrainerAction" method="removePersonalTrainerDetails">
+				   <interceptor-ref name="loginStack" /> 
+			    <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/personalTrainerRemove.tiles</result>
+				<result name="invalid.token" type="tiles">/personalTrainerRemove.tiles</result>
+			</action>
+		<!--*********************************************************************************  -->
+		
+		<!-- ************************** Report Actions ***************************** -->
+			<!-- Personal Trainer Details By Date -->
+			<action name="personalTrainerDetailsByDate" class="com.om.pt.action.PersonalTrainerReportAction" method="showPTDetailsByDate">
+				<result name="success" type="tiles">/personalTrainerDetailsByDate.tiles</result>
+			</action> 
+		<!-- *****************************Personal Trainer Attendance Between Date By Id*************************************************  -->
+		
+			<action name="ptAttendanceListByDateAndId" class="com.om.member.action.AttendanceReportAction" method="ptAttendanceListByDateAndId">
+				<result name="success" type="tiles">/ptAttendanceListByDateAndId.tiles</result>
+			</action>
+			<!-- *****************************Print Personal Trainer Wise Member*************************************************  -->
+		
+			<action name="personalTrainerWiseMember" class="com.om.pt.action.PersonalTrainerReportAction" method="personalTrainerWiseMember">
+				<result name="success" type="tiles">/ptWiseMember.tiles</result>
+			</action>
+			
+	</package>
+</struts>

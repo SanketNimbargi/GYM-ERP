@@ -1,0 +1,2 @@
+		<div style="float: left; vertical-align: middle;" ><label style="padding-left: 10px; vertical-align: middle;">Copyright &copy; Sanket Nimbargi</label></div>
+		<div style="float: right; padding-right: 10px"><a href="http://www.omvsabitsolution.in" style="right: 10px;">Sanket Nimbargi</a></div>

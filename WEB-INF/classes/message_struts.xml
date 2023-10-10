@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="message" extends="login">
+		
+		<!-- ************************** Configure Connection Actions ***************************** -->
+			<!-- Configure Connection on menu action -->
+			<action name="configureConnection" class="com.om.common.action.ConfigureConnection" method="configureConnection">
+				<result name="success" type="tiles">/configureConnection.tiles</result>
+			</action>
+			<!-- Connect To Modem(COM) Port -->
+			<action name="connect" class="com.om.common.action.ConfigureConnection" method="connect">
+				<result name="success" type="tiles">/configureConnection.tiles</result>
+			</action>
+			<!-- Disconnect To Modem(COM) Port -->
+			<action name="disconnect" class="com.om.common.action.ConfigureConnection" method="disconnect">
+				<result name="success" type="tiles">/configureConnection.tiles</result>
+			</action>
+		<!--*********************************************************************************  -->
+		
+		<!-- ************************** Send Message Actions ***************************** -->
+			<!-- Send Birthday message -->
+			<action name="sendSMS" class="com.om.common.action.SendMessageAction" method="sendSMS">
+				<result name="redirect" type="tiles">/sendMessage.tiles</result>
+				<result name="success" type="redirectAction">home</result>
+				<result name="error">/error.jsp</result>
+			</action>
+			
+			<!-- Send Enquired Members message -->
+			<action name="sendSMSToEnquiredMembers" class="com.om.common.action.SendMessageAction" method="sendSMSToEnquiredMembers">
+				<result name="redirect" type="tiles">/sendMessage.tiles</result>
+				<result name="success" type="redirectAction">home</result>
+				<result name="error">/error.jsp</result>
+			</action>
+				<!-- ************************** Send to member  Message Actions ***************************** -->
+			
+			<!-- Send message to member menu action -->
+			<action name="sendMessageToMember" class="com.om.common.action.SendMemberMessageAction" method="sendMessageToMember">
+				<result name="success" type="tiles">/sendMessageToMember.tiles</result> 
+			</action>
+			<!-- memberTypeDetails for send Message-->
+			<action name="memberTypeDetails" class="com.om.common.action.SendMemberMessageAction" method="memberTypeDetails">
+				<result name="success" type="tiles">/sendMessageToMember.tiles</result>
+			</action>
+			<!-- Send message -->
+			<action name="sendMsgToMember" class="com.om.common.action.SendMessageAction" method="sendSMS">
+				<interceptor-ref name="loginStack"/>
+     			<interceptor-ref name="execAndWait">
+     				<param name="delay">5000</param>
+                	<param name="delaySleepInterval">5000</param>
+     			</interceptor-ref> 
+     			<result name="wait">wait.jsp</result>
+     			<result name="redirect" type="tiles">/sendMessage.tiles</result>
+				<result name="success" type="tiles">/sendMessageToMember.tiles</result>			
+			</action>
+			
+			<!-- ************************** Send to email  Message Actions ***************************** -->
+				<!-- updateEmailAndPassaction -->
+			<action name="openEmailSetting" class="com.om.common.action.EmailSettingAction" method="openEmailSetting">
+				<result name="success" type="tiles">/updateEmailAndPass.tiles</result> 
+			</action>
+				<!-- updateEmailAndPassaction -->
+			<action name="updateEmailAndPasswordAction" class="com.om.common.action.EmailSettingAction" method="updateEmailAndPasswordAction">
+				<result name="success" type="tiles">/updateEmailAndPass.tiles</result> 
+			</action>
+			<!-- Send email to member menu action -->
+			<action name="openSendEmailToMemberAction" class="com.om.common.action.SendEmailAction" method="openSendEmailToMemberAction">
+				<result name="success" type="tiles">/sendEmailToMember.tiles</result> 
+				<result name="error" type="redirectAction">openEmailSetting</result> 
+			</action>
+			<!-- memberTypeDetails for send Message-->
+		<!-- 	<action name="emailmemberTypeDetails" class="com.om.common.action.SendMemberEmailAction" method="emailmemberTypeDetails">
+				<result name="success" type="tiles">/sendEmailToMember.tiles</result>
+				<result name="error" type="tiles">/sendEmailToMember.tiles</result>
+			</action> -->
+			<!-- Send email -->
+			<action name="sendEmail" class="com.om.common.action.SendEmailAction" method="sendEmail">
+				<!-- <interceptor-ref name="loginStack"/>  -->
+     			 <!-- <interceptor-ref name="execAndWait">
+     				<param name="delay">5000</param>
+                	<param name="delaySleepInterval">5000</param> 
+     			</interceptor-ref>   -->
+     			<result name="wait" type="tiles">/emailSending.tiles</result>  
+				<result name="success" type="tiles">/sendEmailToMember.tiles</result>
+				
+			</action>
+			
+		<!--*********************************************************************************  -->
+	</package>
+</struts>

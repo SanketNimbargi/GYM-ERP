@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MemberBodyDetailsReport" pageWidth="920" pageHeight="595" orientation="Landscape" columnWidth="880" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d929d4c3-591d-4809-bafd-505c93911855">
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="337"/>
+	<property name="ireport.y" value="4"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="memberId" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM memberbodydetailsmodel where fromDate between $P{fromDate} and $P{toDate} and memberid=$P{memberId}]]>
+	</queryString>
+	<field name="memberbodyId" class="java.lang.Integer"/>
+	<field name="arms" class="java.lang.String"/>
+	<field name="bodyAge" class="java.lang.String"/>
+	<field name="bodyFat" class="java.lang.Float"/>
+	<field name="bodyMassIndex" class="java.lang.String"/>
+	<field name="fromDate" class="java.lang.String"/>
+	<field name="height" class="java.lang.String"/>
+	<field name="legs" class="java.lang.String"/>
+	<field name="memberName" class="java.lang.String"/>
+	<field name="restingMetabolism" class="java.lang.String"/>
+	<field name="segmentalSkMuscle" class="java.lang.Float"/>
+	<field name="segmentalSubFat" class="java.lang.Float"/>
+	<field name="skarms" class="java.lang.String"/>
+	<field name="sklegs" class="java.lang.String"/>
+	<field name="sktrunk" class="java.lang.String"/>
+	<field name="trunk" class="java.lang.String"/>
+	<field name="visceralFatLevel" class="java.lang.Float"/>
+	<field name="weight" class="java.lang.String"/>
+	<field name="memberid" class="java.lang.String"/>
+	<field name="bmiFees" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="143" splitType="Stretch">
+			<image>
+				<reportElement x="137" y="2" width="545" height="90" uuid="3f7fcbf3-0e6e-493f-ab29-8f51d854362b"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+			<rectangle radius="10">
+				<reportElement x="267" y="98" width="283" height="37" backcolor="#CCCCCC" uuid="09df8277-d50c-4942-8ea5-ea92fefbecca"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="267" y="98" width="283" height="37" uuid="1bcc6baa-e011-42da-9531-b3ba30b25dd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Member Body Details Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="15" width="100" height="27" uuid="3666acf8-f042-4e00-9381-1dfa40c72b5d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Member Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="15" width="128" height="27" uuid="eed939b2-3e82-4aa3-967c-c212f4154e67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{memberid}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="703" y="17" width="103" height="25" uuid="3f1c9f52-4d78-477a-ab13-1f6f6a368da8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="638" y="17" width="100" height="25" uuid="f8b383c8-ad9b-4bc6-a215-fb6e9ca7870f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="76" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="0" width="67" height="76" uuid="6f5b587a-4e43-496c-9c25-cc646373e702"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="0" width="47" height="76" uuid="20ed5d2b-de40-41ab-8cb8-b4f5a1545966"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Height]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="46" height="76" uuid="a15ec348-2071-408f-b099-40e7d00037be"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Weight]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="0" width="40" height="76" uuid="848576be-706a-40eb-bcad-2541ac50e71c"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BMI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="0" width="41" height="76" uuid="0c7ed188-a185-4411-9de4-22a5858fbd57"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Body Fat %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="0" width="102" height="76" uuid="f60d5506-7365-4d7f-aff0-75be65203056"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segmental subcutaneous Fat % Whole Body]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="0" width="35" height="76" uuid="5575f200-2876-4baf-90b7-8d1dc4e2a0ba"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trunk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="0" width="34" height="76" uuid="1c7908b7-570d-4529-a1b4-a9ed3eccc100"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Legs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="0" width="33" height="76" uuid="e3aa4eb1-0d10-4a06-b8c6-22502af74ea6"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Arms]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="0" width="102" height="76" uuid="15d04464-97ac-48b7-86a8-c93f8d4a8d61"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segmental Skeletal Muscle % Whole Body]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="647" y="0" width="35" height="76" uuid="85215bdb-16c0-4d41-92fc-f29b65fafa7b"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Arms]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="573" y="0" width="37" height="76" uuid="176b79d3-5c4c-4787-9a07-88f7ffc56c83"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trunk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="610" y="0" width="37" height="76" uuid="60b1f0a8-fc6a-49d3-b6a7-c042435adf40"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="0">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Legs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="682" y="0" width="65" height="76" uuid="ce6ebe33-3b97-4be5-b33e-41ff0d5278a2"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resting Metabolism]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="747" y="0" width="51" height="76" uuid="73fb9b69-1ece-46be-b7b3-f0c9f799ed96"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Visceral Fat Level]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="798" y="0" width="42" height="76" uuid="857c39b8-cf93-4bb4-8ee3-e2d7ac18568d"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Body Age]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="26" height="76" uuid="31464584-066b-4c6c-a7b5-1ab42b24c334"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="840" y="0" width="40" height="76" uuid="66b746fd-9121-4a47-ae6a-22d92f69d188"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fees]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="0" width="67" height="33" uuid="bedb6cdc-96c1-4633-b705-955171662f52"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="47" height="33" uuid="084f0519-5e7e-4b72-b74d-46c054b8dc06"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{height}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="46" height="33" uuid="bbe63933-88f5-4674-b57e-4677db719b88"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="0" width="40" height="33" uuid="2c40d217-4508-4ea8-82be-6683af0c14ee"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bodyMassIndex}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="0" width="41" height="33" uuid="444205f0-63d8-42ed-b275-870785ee68b0"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bodyFat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="102" height="33" uuid="a4259725-834c-480c-acc2-e93e4ea4bab3"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{segmentalSubFat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="0" width="35" height="33" uuid="390cf633-7b6f-47bd-b0a9-dc1b735a2b43"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{trunk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="0" width="34" height="33" uuid="41922229-5ac6-4490-80af-6b0b77cfda88"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{legs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="0" width="33" height="33" uuid="a6ef6997-4413-4b1f-a234-27f4a32eb930"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{arms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="102" height="33" uuid="9bd74a43-030c-4393-bf99-fc694dc1948f"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{segmentalSkMuscle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="573" y="0" width="38" height="33" uuid="ef099aeb-1f02-4924-987b-00c1bb7e0b25"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sktrunk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="611" y="0" width="36" height="33" uuid="8de36ac0-b794-47a9-a004-7eb69db3561d"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sklegs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="647" y="0" width="35" height="33" uuid="365b3a1f-bc75-43c8-9a38-b0e513dc3bbc"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{skarms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="682" y="0" width="65" height="33" uuid="49792b08-7bd9-44a6-af4a-7dc5be397756"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{restingMetabolism}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="747" y="0" width="51" height="33" uuid="c9c1bdf6-0eeb-460b-bc99-6d2e2ec5bda7"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{visceralFatLevel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="798" y="0" width="42" height="33" uuid="b2d50586-665c-4517-9162-fed795eb64e3"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bodyAge}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="26" height="33" uuid="dd513133-98a9-403f-a80a-3442d81563ca"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="840" y="0" width="40" height="33" uuid="d9e48a52-5557-4afc-984c-7746543ec2a8"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bmiFees}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="login" extends="default">
+	
+		<!-- login action  -->
+		<action name="loginUser" class="com.om.login.action.LoginAction" method="loginRegisterUser">
+			 
+			<result name="user" type="redirectAction">home</result>
+			<result name="admin" type="redirectAction">adminHome</result>
+		</action>
+
+		<!-- logout action -->
+		
+		<action name="logOut" class="com.om.login.action.LogoutAction" method="logOut">
+			
+		</action>
+		
+		<!-- ***************************************Home Page Actions*************************** -->
+		<!-- Gym home action -->
+			<action name="home" class="com.om.common.action.HomeAction" method="home">
+				 <interceptor-ref name="loginStack" /> 
+				<interceptor-ref name="execAndWait" />
+				 <result name="wait">wait.jsp</result>
+				<result name="success" type="tiles">/home.tiles</result>
+				<!-- <result name="wait">/wait.jsp</result> -->
+			</action>
+			<!-- Admission home action -->
+			<action name="gymHome" class="com.om.common.action.HomeAction" method="gymHome">
+				 <interceptor-ref name="loginStack" /> 
+				 <interceptor-ref name="execAndWait" />
+				 <result name="wait">wait.jsp</result>
+				<result name="success" type="tiles">/gymHome.tiles</result>
+			</action>
+			
+			<!-- Admin home action -->
+			<action name="adminHome" class="com.om.common.action.HomeAction" method="adminHome">
+				 <interceptor-ref name="loginStack" /> 
+				 <interceptor-ref name="execAndWait" />
+				 <result name="wait">/wait.jsp</result>
+				<result name="success" type="tiles">/adminHome.tiles</result>
+			</action>
+			
+		<!-- ********************************************************************************** -->
+		
+	</package>
+</struts>

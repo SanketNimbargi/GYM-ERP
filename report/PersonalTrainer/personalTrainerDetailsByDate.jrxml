@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="personalTrainerDetailsByDate" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="585ff44f-6b03-4f71-bfe4-a611cfb3454f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="banner" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{banner}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fromDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="toDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="personalTrainerId" class="java.lang.Integer"/>
+	<field name="firstNamePT" class="java.lang.String"/>
+	<field name="middleNamePT" class="java.lang.String"/>
+	<field name="lastNamePT" class="java.lang.String"/>
+	<field name="genderPT" class="java.lang.String"/>
+	<field name="joiningDatePT" class="java.lang.String"/>
+	<field name="contactNoPT" class="java.lang.String"/>
+	<variable name="countNumber" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="167" splitType="Stretch">
+			<image hAlign="Center" isUsingCache="false">
+				<reportElement uuid="edf84b1f-cbbb-47de-8702-63839719f83b" x="100" y="0" width="600" height="80"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement uuid="c1ebbdbd-898d-44d2-98c5-740c608ba2c7" x="2" y="89" width="800" height="1"/>
+			</line>
+			<rectangle radius="10">
+				<reportElement uuid="d4449016-bb46-4e05-9b48-e636f1eab86c" x="203" y="101" width="400" height="25" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="e4c7056c-16dd-4bf1-8c34-ead7cff947c8" x="203" y="101" width="400" height="25"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Personal Trainer Details Between Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9e98ae0c-c6ef-4135-9c35-5d64dd1ee297" x="185" y="137" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="90d9bf88-e3a0-4f36-af93-7a074679bf7e" x="488" y="137" width="59" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5bc02036-e23a-452c-888b-b76d4e4313b6" x="255" y="137" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0d5f8fbd-e1f0-4f8f-8729-400776bd9329" x="548" y="137" width="83" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="6c87c5b8-5b5e-401d-b616-84f9b9a6fdf8" x="0" y="0" width="802" height="40" forecolor="#000000" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="847e6186-4afb-4534-9392-919d8097977f" x="63" y="0" width="85" height="40"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="10c8b711-05b1-42b3-81d9-21d63696df6e" x="148" y="0" width="300" height="40"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trainer Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="adc94421-8170-4c6a-8a75-9409d173f1f7" x="448" y="0" width="100" height="40"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="092b9b09-29a2-4d8c-b542-b18a2064c006" x="663" y="0" width="139" height="40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contact No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d21eaedb-2f7e-4ca2-9643-eb81df66d7ae" x="548" y="0" width="115" height="40"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Joining Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6a839018-83a3-4ef3-ad83-7d5d582d295a" x="0" y="0" width="63" height="40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr No.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement uuid="072a57cd-6e47-4b76-af66-4f8535f96ccc" x="63" y="0" width="85" height="25"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PT"+$F{personalTrainerId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a324e72d-657f-474e-9e3c-20f5557a18b8" x="148" y="0" width="300" height="25"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstNamePT}+" "+$F{middleNamePT}+" "+$F{lastNamePT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8ee3c6a7-a607-4e2d-9f9f-77c441e3bfde" x="448" y="0" width="100" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{genderPT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be250de0-d9b8-4fb4-aa21-7ec10834e839" x="548" y="0" width="115" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse($F{joiningDatePT}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="62c866c2-20dc-44d2-9dfd-7b98f45f7287" x="663" y="0" width="139" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contactNoPT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ddb0b98-8636-4d04-a840-4366abf277ce" x="1" y="0" width="62" height="25"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{countNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

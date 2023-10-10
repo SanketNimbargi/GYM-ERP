@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReportDemo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d9c0036-e947-4d10-9fc7-82e44b06721b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="ownerName" class="java.lang.String"/>
+	<parameter name="vehicleNumber" class="java.lang.String"/>
+	<parameter name="dieselQuentity" class="java.lang.String"/>
+	<parameter name="driverAdvanceAmount" class="java.lang.String"/>
+	<parameter name="driverBounsAmount" class="java.lang.String"/>
+	<parameter name="dieselAmount" class="java.lang.String"/>
+	<parameter name="TotalAmt" class="java.lang.String"/>
+	<parameter name="PendingAmount" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT dirverName,vehicleNumber,addDate,amount,amountType FROM dirvermastermodel d
+where vehicleNumber=$P{vehicleNumber} and addDate between $P{fromDate} and $P{toDate};]]>
+	</queryString>
+	<field name="dirverName" class="java.lang.String"/>
+	<field name="vehicleNumber" class="java.lang.String"/>
+	<field name="addDate" class="java.lang.String"/>
+	<field name="amount" class="java.lang.Double"/>
+	<field name="amountType" class="java.lang.String"/>
+	<variable name="amount" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{amount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="41" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="9bcf731a-89ce-447d-b490-a8285df0631b" x="167" y="10" width="220" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="b88dc9fa-3da4-4d64-ab4d-62c85693a740" x="10" y="34" width="530" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="c8af605e-9f58-4271-abb9-5b8e0b09315b" x="171" y="13" width="211" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Driver Bonus  And Advance Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28">
+			<rectangle>
+				<reportElement uuid="c0210f45-0dd7-4071-9bd8-33a3cad5bfb3" x="0" y="0" width="73" height="28" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="b2a42606-8e5d-4598-a33c-42045f2e1eb9" x="0" y="0" width="73" height="28"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="ad83a316-edc2-46e4-94dc-2265a8b5c698" x="73" y="0" width="96" height="28" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="09d0d08a-73f6-4e5f-8f21-13e0506e0074" x="169" y="0" width="98" height="28" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8fde8d49-6cbf-4322-adde-63d7d1391dec" x="266" y="0" width="94" height="28" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="5d8d272e-4da7-4365-a7ec-ad1cf8ea976f" x="445" y="0" width="98" height="28" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="012a0af9-b8d7-4d9a-8d9f-a6de346216b4" x="73" y="0" width="96" height="28"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Driver Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c09e1768-d3e1-4435-8a02-0c468b6a03a6" x="169" y="0" width="98" height="28"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec69f695-6952-415f-a8bc-89c3675d71b0" x="267" y="0" width="93" height="28"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="533bcd8a-3c37-4a89-811d-2168282a07df" x="444" y="0" width="99" height="28"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="6615a68f-926a-4ef7-93c1-963036b7e054" x="359" y="0" width="86" height="28" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="190c302b-0bb8-402e-b619-636f94f04d16" x="359" y="0" width="86" height="28"/>
+				<box topPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement uuid="053d63c1-a58b-4f9b-8b2c-5870d99ba9e4" x="0" y="0" width="73" height="32"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="19cdd6a9-6b36-478c-abc3-ac11d4139340" x="73" y="0" width="96" height="32"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dirverName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6d80cb0d-4cf9-4490-9c5d-4a3df55558f5" x="169" y="0" width="98" height="32"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vehicleNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1b88db43-2992-4e21-83d1-dbc5539a42db" x="267" y="0" width="93" height="32"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{addDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71c0ed26-68fa-432f-8640-e6320bbce989" x="445" y="0" width="98" height="32"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9c65c858-5e59-44f0-a00c-028584669a2c" x="360" y="0" width="85" height="32"/>
+				<box topPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amountType}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement uuid="81a11027-88c2-460a-af7f-fe370c78d321" x="444" y="0" width="99" height="32"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{amount}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="f2c786d8-3575-49f7-b1ae-0b6c3d9a88b4" x="334" y="0" width="111" height="32" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="4871ceaf-985a-41de-8298-3199ecbb839f" x="333" y="0" width="111" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Total Advance Bonus ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

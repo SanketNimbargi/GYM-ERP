@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DebitedAmountDetailsByDate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8a55a0c0-02d0-4d12-ad09-d90eb4ef7c46">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="banner" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[    select
+        this_.id,
+        this_.bankName,
+        this_.accountName,
+        this_.creditAmount,
+        this_.journalEntrydate,
+        this_.reason
+    from
+        bankJournalDetails this_
+    where
+        this_.journalEntrydate='2015-05-22'
+        and this_.creditAmount<>0.00;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="bankName" class="java.lang.String"/>
+	<field name="accountName" class="java.lang.String"/>
+	<field name="creditAmount" class="java.lang.Float"/>
+	<field name="journalEntrydate" class="java.lang.String"/>
+	<field name="reason" class="java.lang.String"/>
+	<variable name="countNumber" class="java.lang.String"/>
+	<variable name="Total" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{creditAmount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="174" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9e98ae0c-c6ef-4135-9c35-5d64dd1ee297" x="217" y="156" width="35" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="d4449016-bb46-4e05-9b48-e636f1eab86c" x="87" y="124" width="405" height="30" backcolor="#CCCCCC"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="c1ebbdbd-898d-44d2-98c5-740c608ba2c7" x="10" y="113" width="554" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="e4c7056c-16dd-4bf1-8c34-ead7cff947c8" x="100" y="124" width="380" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Credit Account Details By Date]]></text>
+			</staticText>
+			<image hAlign="Center" isUsingCache="false">
+				<reportElement uuid="edf84b1f-cbbb-47de-8702-63839719f83b" x="1" y="10" width="555" height="80"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="20dc680d-a658-4393-9915-d7209b72d51e" x="252" y="156" width="100" height="18"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse($F{journalEntrydate}))]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="6c87c5b8-5b5e-401d-b616-84f9b9a6fdf8" mode="Opaque" x="40" y="0" width="484" height="30" forecolor="#000000" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="060f87f2-1b2c-4077-be5f-1073754e3c7f" x="43" y="0" width="44" height="30"/>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SR No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="060f87f2-1b2c-4077-be5f-1073754e3c7f" x="87" y="1" width="121" height="30"/>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="88f0bf95-0683-4be7-9416-3963957615e0" x="208" y="1" width="108" height="29"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name/No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="615c2dee-26a8-4b04-bd03-8e2e5ee9bb5a" x="316" y="1" width="100" height="29"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reason]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e15ff3d7-b196-41d0-b662-fcdbe42a2d10" x="416" y="1" width="108" height="29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Credit Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="de68ff02-809f-4794-8959-cb9dd766d3a7" x="42" y="0" width="47" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a682195-f059-4989-98d1-45648342852b" x="208" y="0" width="108" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{accountName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="37db775c-83f1-455f-97fc-feca6798ba52" x="87" y="0" width="121" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="44418eaa-fa69-4cd4-825e-6629cb5b8041" x="316" y="0" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reason}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4a428569-e4ff-4a08-b591-bbddfad11c3c" x="416" y="0" width="107" height="20"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{creditAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a4ae1a18-ce40-4790-9ba8-395f3179d84d" x="316" y="0" width="100" height="20"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b33702cc-f551-4436-8e07-64e6806cf6af" x="416" y="0" width="107" height="20"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

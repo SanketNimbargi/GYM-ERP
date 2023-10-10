@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		Database connection settings
+		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=SmartOffice;</property>
+		<property name="connection.autoReconnect"> true </property>
+		<property name="connection.username">essl</property>
+		<property name="connection.password">essl</property>
+
+		JDBC connection pool (use the built-in)
+		<property name="connection.pool_size">1</property> 
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">5</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.timeout">1800</property>
+
+		SQL dialect
+		<property name="dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+
+		Enable Hibernate's automatic session context management
+		<property name="current_session_context_class">thread</property>
+
+		Echo all executed SQL to stdout
+		<property name="show_sql">true</property>
+		Drop and re-create the database schema on startup
+		<property name="hbm2ddl.auto">update</property>
+		<property name="format_sql">true</property>
+		<property name="use_sql_comments">update</property>		
+		*********************** LOGIN MAPPING ***********************
+		<mapping class="com.om.thread.model.PresentModel"/> 		
+	</session-factory>
+</hibernate-configuration> -->
+
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Database connection settings -->
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=SmartOfficedb</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">essl</property>
+		<property name="hibernate.default_schema">dbo</property>
+
+		<!-- JDBC connection pool (use the built-in) -->
+<!-- 		 <property name="hibernate.connection.pool_size">100</property> 
+ -->		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+<!-- 		<property name="hibernate.current_session_context_class">thread</property>
+ -->
+		<!-- Echo all executed SQL to stdout -->
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+ 			
+	</session-factory>
+</hibernate-configuration>
+

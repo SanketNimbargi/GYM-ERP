@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="member-jasper" extends="jasperreports-default">
+	
+	<!-- ********************************** Attendance Reports ************************************ -->
+		
+		
+	<!-- **************** All Member  Details  Report  ****************** -->
+		 <action name="printTotalMemberDetails" class="com.om.member.action.ReportAction" method="printTotalMemberDetails">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/AllMemberDetails.jasper</param>
+				<param name="dataSource">memberDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		<!-- **************** All Member  Details  Report  ****************** -->
+		 <action name="allMemberDetails" class="com.om.member.action.ReportAction" method="allMemberDetails">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/AllMemberDetails.jasper</param>
+				<param name="dataSource">memberDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	
+		<!-- **************** Member  Details By package Report  ****************** -->
+		 <action name="printMemberDetailsByPackage" class="com.om.member.action.ReportAction" method="printMemberDetailsByPackage">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/memberDetailsByPackage.jasper</param>
+				<param name="dataSource">memberDetailsByPackageList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	      <!-- ****************print Member Measurement Card Details by id Report Master ****************** -->
+		<action name="printMemberMeasurementCardDetailsById" class="com.om.member.action.MemberMeasurementCardAction" method="printMemberMeasurementCardDetailsById">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/measurementCardReport.jasper</param>
+				<param name="dataSource">memberCardList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action> 
+		<!-- **************** Member Registration Details By Date Report Master ****************** -->
+		 <action name="printMemberRegistrationDetailsByDate" class="com.om.member.action.ReportAction" method="printMemberRegistrationDetailsByDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/memberRegistrationDetailsByDate.jasper</param>
+				<param name="dataSource">memberRegistrationList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		  
+		<!-- ****************Total Member Registration Details Report Master ****************** -->
+		 <action name="printTotalMemberRegistrationDetail" class="com.om.member.action.ReportAction" method="printTotalMemberRegistrationDetail">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/printTotalMemberRegistrationList.jasper</param>
+				<param name="dataSource">memberRegistrationList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		<!-- **************** Member Registration Details By Gender ****************** -->
+		 <action name="printMemberRegistrationDetailsByGenders" class="com.om.member.action.ReportAction" method="printMemberRegistrationDetailsByGenders">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/memberRegistrationDetailsByGender.jasper</param>
+				<param name="dataSource">memberRegistrationList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+			<!-- **************** Member Details By Hour Type ****************** -->
+		 <action name="printMemberDetailsByHourType" class="com.om.member.action.ReportAction" method="printMemberDetailsByHourType">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/hourTypeMemberDetails.jasper</param>
+				<param name="dataSource">memberDetailsList</param> 
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		<!-- **************** Total Cancel Member Registration Details  ****************** -->
+		 <action name="printTotalCancelMemberRegistration" class="com.om.member.action.ReportAction" method="printTotalCancelMemberRegistration">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/printTotalCancelMemberRegistration.jasper</param>
+				<param name="dataSource">memberRegistrationList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- ****************Cancel Member Registration Details Report Master ****************** -->
+		 <action name="printCancelMemberRegistrationByDate" class="com.om.member.action.ReportAction" method="printCancelMemberRegistrationByDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/cancelMemberRegistrationByDate.jasper</param>
+				<param name="dataSource">memberRegistrationList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	<!-- **************************************************************************************** -->
+	
+	<!-- ********************************** Attendance Reports ************************************ -->
+		<!-- ****************Attendance List Between Date Details Report from print Action****************** -->
+		 <action name="printAttendanceListBetweenDate" class="com.om.member.action.AttendanceReportAction" method="printAttendanceListBetweenDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/attendanceListBetweenDate.jasper</param>
+				<param name="dataSource">membersAttendanceDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- ****************Attendance List By Date Details Report from print Action****************** -->
+		 <action name="printAttendanceListByDate" class="com.om.member.action.AttendanceReportAction" method="printAttendanceListByDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/attendanceListByDate.jasper</param>
+				<param name="dataSource">membersAttendanceDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!-- ****************Attendance List Between Date By Id Details Report from print Action****************** -->
+		 <action name="printattendanceListBetweenDateById" class="com.om.member.action.AttendanceReportAction" method="printattendanceListBetweenDateById">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/attendanceListBetweenDateById.jasper</param>
+				<param name="dataSource">membersAttendanceDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	<!-- **************************************************************************************** -->
+	<!-- ****************Total Member Details With Payment****************** -->
+		 <action name="totalMemberDetailsWithPayment" class="com.om.member.action.ReportAction" method="totalMemberDetailsWithPayment">
+		 	
+			<result name="success" type="jasper">
+				<param name="location">report/Member/allMemberDetailsWithPayment.jasper</param>
+				<param name="dataSource">memberDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	<!--*********************Print Enquiry Between Date Report **********************************  -->
+		<action name="printenquiryDetailsBetweenDate" class="com.om.member.action.ReportAction"
+			method="printenquiryDetailsBetweenDate">
+			<result name="success" type="jasper">
+			 <param name="location">/report/Member/enquiryDetailsBetweenDate.jasper</param>
+				<param name="dataSource">enquiryDetailList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	<!--*********************Print Enquiry By One  Date Report **********************************  -->
+		<action name="printenquiryDetailsByoneDate" class="com.om.member.action.ReportAction"
+			method="printenquiryDetailsByoneDate">
+			<result name="success" type="jasper">
+			 <param name="location">/report/Member/enquiryDetailsByOneDate.jasper</param>
+				<param name="dataSource">enquiryByOneDate</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!--*********************Print Assigned PT to Member Date Report **********************************  -->
+		<action name="memberToPersonalTrainer" class="com.om.member.action.ReportAction"
+			method="memberToPersonalTrainer">
+			<result name="success" type="jasper">
+			 <param name="location">/report/Member/memberToPersonalTrainer.jasper</param>
+				<param name="dataSource">ptMemberList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		
+		<!--********************* Members birthday between date **********************************  -->
+		<action name="birthdayDetailsBetweenDateReport" class="com.om.member.action.BirthdayBetweenDateAction" method="printBirthdayDetailsBetweenDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/BirthdayDetailsBetweenDate.jasper</param>
+				<param name="dataSource">birthdayDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+			
+			<!--********************* Members birthday between date **********************************  -->
+		<action name="anniversaryDetailsBetweenDateReport" class="com.om.member.action.BirthdayBetweenDateAction" method="printAnniversaryDetailsBetweenDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/AnniversarydetailsBetweenDate.jasper</param>
+				<param name="dataSource">anniversaryDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+	<!-- **************** Member  Details By package Report  ****************** -->
+		 <action name="printMemberDetailsByPackageAndLedger" class="com.om.member.action.ReportAction" method="printMemberDetailsByPackageAndLedger">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/memberDetailsByPackageAndLedger.jasper</param>
+				<param name="dataSource">memberDetailsByPackageAndLedgerList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	
+	<!--********************* Members birthday between date **********************************  -->
+		<action name="printMemberExpiryDetailsByDate" class="com.om.member.action.ReportAction" method="printMemberExpiryDetailsBtdates">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/memberPackageExpiry.jasper</param>
+				<param name="dataSource">membersExpiryList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		<!-- Member Body Details Report -->
+			<action name="MemberbodyDetailReport" class="com.om.member.action.ReportAction" method="printMemberBodyDetailsBetweenDate">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/MemberBodyDetailsReport.jasper</param>
+				<param name="dataSource">memberBodyDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<!--  -->
+			<action name="printMemberTransformationDetails" class="com.om.member.action.ReportAction" method="printMemberTransformationDetails">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/printMemberTransformationDetailsReport.jasper</param>
+				<param name="dataSource">memberTransformationList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+	</package>
+</struts>

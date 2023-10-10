@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="pt-json" extends="json-default">
+	
+		<!-- *********************** Personal Trainer AJAX Actions *********************** -->
+			<!-- Fetch Personal Trainers Details to update -->
+			<action name="fetchPersonalTrainersDetails" class="com.om.pt.action.PersonalTrainerAjaxAction" method="fetchPersonalTrainersDetails">
+				<result name="success" type="json"></result>
+			</action> 
+			
+			<!-- Fetch Personal Trainers Details to update -->
+			<action name="fetchCancelPersonalTrainersDetails" class="com.om.pt.action.PersonalTrainerAjaxAction" method="fetchCancelPersonalTrainersDetails">
+				<result name="success" type="json"></result>
+			</action>
+		<!-- ********************************************************* -->
+		
+		<!-- **********************Personal Trainer Attendance Ajax Actions*********************************** -->
+			<!-- Fetch Personal Trainer And Attendance Details -->
+			<action name="fetchPersonalTrainerAttendance" class="com.om.member.action.AttendanceAjaxAction" method="fetchPersonalTrainerAttendance">
+				<result type="json"></result>
+			</action>
+		
+	</package>
+</struts>

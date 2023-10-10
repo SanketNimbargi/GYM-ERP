@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="memberToPersonalTrainer" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f46f221c-8b84-455d-a579-31219025f2f6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select distinct(m.memberId),m.firstName,m.middleName,m.lastName, pt.firstNamePT,pt.lastNamePT,pt.middleNamePT, lf.hourType,lm.ledgerName from
+				memberregistration m inner join personaltrainersdetails pt on m.ptNameList = pt.personalTrainerId
+				inner join ledgerfees lf on m.memberId=lf.memberId
+left outer join ledgermaster lm on lf.ledgerId=lm.ledgerId
+				left outer join ledgerfeespaid lfp on lfp.ledgerFeesId = lf.ledgerFeesId
+				where lf.endDate>=sysdate()]]>
+	</queryString>
+	<field name="memberId" class="java.lang.Integer"/>
+	<field name="firstName" class="java.lang.String"/>
+	<field name="middleName" class="java.lang.String"/>
+	<field name="lastName" class="java.lang.String"/>
+	<field name="firstNamePT" class="java.lang.String"/>
+	<field name="lastNamePT" class="java.lang.String"/>
+	<field name="middleNamePT" class="java.lang.String"/>
+	<field name="hourType" class="java.lang.String"/>
+	<field name="ledgerName" class="java.lang.String"/>
+	<variable name="countNumber" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="161" splitType="Stretch">
+			<line>
+				<reportElement uuid="297d2ef7-c5d0-47d7-9605-532bb8455565" mode="Transparent" x="2" y="104" width="554" height="1"/>
+			</line>
+			<rectangle radius="10">
+				<reportElement uuid="15d06774-51c3-4065-b1c0-58761b6d7534" mode="Opaque" x="118" y="116" width="355" height="30" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="99ee9b18-9275-40e2-8272-443e35ed123d" x="118" y="116" width="355" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assigned Personal Trainer To Member]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="47626eb3-d07c-49c4-bf57-df961af370fb" mode="Transparent" x="2" y="20" width="552" height="74"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="1b128527-21e4-4eff-8e99-daea258556af" mode="Opaque" x="2" y="1" width="552" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="f27594f7-d8af-4024-baa4-c325fbfdb017" x="40" y="1" width="144" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Member Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e4d32184-04cb-484c-8eb5-9783f342b24b" x="2" y="0" width="38" height="21"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr.No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4b98fe1b-c798-4509-aad0-9a37320a52ae" x="184" y="1" width="164" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Personal Trainer Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dcde1aba-2e3d-49c3-b5c3-d0906b036c9b" x="430" y="1" width="124" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hour Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2c00d7fd-a45f-49b2-bde2-d5804931fe6b" x="348" y="1" width="82" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ledgerName]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c43fbf93-d9d9-4d6f-8202-56979f0bae72" x="40" y="0" width="144" height="20"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{firstName}+" "+$F{middleName}+"  "+$F{lastName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="06db22f5-7800-4757-a861-a72ae8b88953" x="2" y="0" width="38" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{countNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="34173619-3c36-49f8-ba3b-66afda1ad06f" x="184" y="0" width="164" height="20"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{firstNamePT}+" "+$F{middleNamePT}+"  "+$F{lastNamePT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9b6c07d5-e2af-435a-859c-ee8a42789921" x="430" y="0" width="124" height="20"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hourType}.equals(null) ? " " : $F{hourType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b868458f-0742-46ba-ba05-184e19271bbf" x="348" y="0" width="82" height="20"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ledgerName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

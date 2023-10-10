@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="memberDetailsByPackage" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4e74c3b0-dcfb-4570-9b5f-0217c9c7e95a">
+	<property name="ireport.zoom" value="1.3995221406291998"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="banner" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select m.memberId,concat( m.firstName," ", m.middleName," ", m.lastName) as 'Name',m.contactNo,lm.ledgerName,
+lf.startDate,lf.endDate,lf.feeStatus from memberregistration m join ledgerfees lf on m.memberId=lf.memberId
+left join ledgermaster lm on lf.ledgerId=lm.ledgerId where  m.status=$P{status} and lf.endDate between $P{fromDate} and $P{toDate} order by lf.endDate;]]>
+	</queryString>
+	<field name="memberId" class="java.lang.Integer"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="contactNo" class="java.lang.String"/>
+	<field name="ledgerName" class="java.lang.String"/>
+	<field name="startDate" class="java.lang.String"/>
+	<field name="endDate" class="java.lang.String"/>
+	<field name="feeStatus" class="java.lang.String"/>
+	<variable name="countNumber" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="3f2d24f4-7ac1-41e4-8f63-2c3e13a2fe1e" x="55" y="88" width="428" height="25" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="a192e7ef-2dbd-4393-bcc7-5cc62475b3ed" x="55" y="87" width="428" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Member Package Expiry Report]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="0c47dfb1-7ef1-4f8d-ae4a-ab80ca614f20" x="11" y="-2" width="544" height="80"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0488acde-4ef0-4195-9c9a-e4b44dafde97" x="1" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[From Date :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="070efe9a-7981-457a-81ff-489d0697841a" x="201" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[To Date :-]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="01ee4511-b727-426f-ad7c-91a948d1580d" x="101" y="0" width="100" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2963edab-c749-4d20-8b11-2bf373fef582" x="301" y="0" width="100" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="196348d2-f547-4b64-9f24-26fa028b5bbc" x="470" y="0" width="85" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e0ed0f21-0214-4dad-8c2b-a5aa914f2e40" x="418" y="0" width="52" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Status :-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="1985c872-d2da-45d1-beb7-55d0dc7df008" x="0" y="1" width="555" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="c8d2b8f9-e36a-40df-8396-a9cf7f6e712d" x="25" y="1" width="49" height="20"/>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Member Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3bbe7281-df8d-4aae-89b8-7d4a95415b97" x="74" y="1" width="147" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="015edc18-2560-407c-9913-6bc95b41db18" x="221" y="0" width="69" height="20"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Contact No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="71fa1825-f8a6-468a-8b1a-a0aa75c084e9" x="290" y="1" width="91" height="20"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Ledger Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="88a29450-c86a-4322-b965-bccf85e9ad48" x="381" y="1" width="61" height="20"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Start Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0afb9d25-8b11-4033-8c4a-f3e288357753" x="442" y="1" width="60" height="20"/>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[End Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8d2b8f9-e36a-40df-8396-a9cf7f6e712d" x="0" y="1" width="25" height="20"/>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0d95ff8f-1b84-40dc-8a8d-8f1e9eb7f016" x="502" y="1" width="53" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fees Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="163bcc54-3859-4c1c-8722-0c77ece2f32d" x="25" y="0" width="49" height="15"/>
+				<box leftPadding="5">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["M"+$F{memberId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71711dd4-d8f6-4616-aacb-55e731aa8646" x="75" y="0" width="146" height="15"/>
+				<box leftPadding="5">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5d99bcf7-abcc-42f8-8da8-78355a132a7b" x="290" y="0" width="91" height="15"/>
+				<box leftPadding="5">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ledgerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8f64f981-88b9-4a45-bd43-357d4a67a148" x="381" y="0" width="61" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse($F{startDate}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6770d556-e1b6-4ae1-b53a-40aab62acc96" x="442" y="0" width="60" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{endDate}==null)?"-":new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse($F{endDate}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6e28f7cc-a264-4683-a03a-f48580779ece" x="0" y="0" width="25" height="15"/>
+				<box leftPadding="5">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{countNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3e409d32-53af-4abd-b3d1-348701f88bae" x="502" y="0" width="53" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feeStatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8e3b1830-6765-4857-931c-e9733dad7183" x="221" y="0" width="69" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contactNo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

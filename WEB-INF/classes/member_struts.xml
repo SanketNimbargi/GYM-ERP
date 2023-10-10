@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<include file="member_json_struts.xml"></include>
+	<include file="member_jasper_struts.xml"></include>
+
+	<package name="member" extends="login">
+
+
+<!--Search Member By values specified -->
+		<action name="searchMemberDetailsByValues" class="com.om.common.action.SearchMemberByValueAction"
+			method="searchMemberDetailsByValues">
+			<result name="success" type="tiles">/seachAllMembers.tiles</result>
+		</action>
+		
+		<!--open Fitness Goal -->
+		<action name="uploadData" class="com.om.member.action.UploadDataToEsslAction"
+			method="uploadData">
+			<result name="success" type="tiles">/uploadData.tiles</result>
+		</action>
+		
+		
+		<!--open Fitness Goal -->
+		<action name="uploadUsertoEssl" class="com.om.member.action.UploadDataToEsslAction"
+			method="uploadDataToEssl">
+			<result name="success" type="tiles">/uploadData.tiles</result>
+		</action>
+		
+		
+		<!-- ************************** Fitness Goal Actions ***************************** -->
+		<!--open Fitness Goal -->
+		<action name="fitnessgoal" class="com.om.member.action.FitnessGoalAction"
+			method="fitnessgoal">
+			<result name="success" type="tiles">/fitnessgoal.tiles</result>
+		</action>
+		<!-- save Fitness Goal -->
+		<action name="addFitnessDetails" class="com.om.member.action.FitnessGoalAction"
+			method="saveFitnessGoal">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/fitnessgoal.tiles</result>
+			<result name="invalid.token" type="tiles">/fitnessgoal.tiles</result>
+		</action>
+		<!--update Fitness Goal -->
+		<action name="updateFitnessDetails" class="com.om.member.action.FitnessGoalAction"
+			method="updateFitnessGoal">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/fitnessgoal.tiles</result>
+			<result name="invalid.token" type="tiles">/fitnessgoal.tiles</result>
+		</action>
+
+		<!--delete Fitness Goal -->
+		<action name="deleteFitnessDetails" class="com.om.member.action.FitnessGoalAction"
+			method="deleteFitnessGoal">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/fitnessgoal.tiles</result>
+			<result name="invalid.token" type="tiles">/fitnessgoal.tiles</result>
+		</action>
+		<!-- ************************** Enquiry Actions ***************************** -->
+		<!--Enquiry Form on menu action -->
+		<action name="enquiry" class="com.om.member.action.EnquiryAction"
+			method="enquiry">
+			<result name="success" type="tiles">/enquiry.tiles</result>
+		</action>
+		<!-- Update Enquiry Form on menu action -->
+		<action name="enquiryUpdate" class="com.om.member.action.EnquiryAction"
+			method="enquiryUpdate">
+			<result name="success" type="tiles">/enquiryUpdate.tiles</result>
+		</action>
+		<action name="cancelEnquiry" class="com.om.member.action.EnquiryAction"
+			method="cancelEnquiry">
+			<result name="success" type="tiles">/adminHome.tiles</result>
+		</action>
+		<!--save Enquiry -->
+		<action name="saveEnquiryDetails" class="com.om.member.action.EnquiryAction"
+			method="sendMessage">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="execAndWait">
+     				<param name="delay">5000</param>
+                	<param name="delaySleepInterval">5000</param>
+     		</interceptor-ref> 
+			<interceptor-ref name="token" />
+		  <!--  <result name="redirect" type="redirect">${url}</result> -->
+		  <result name="wait">wait.jsp</result>
+		   <result name="redirect" type="tiles">/sendMessage.tiles</result>
+			<result name="success" type="tiles">/enquiry.tiles</result>
+			<result name="invalid.token" type="tiles">/enquiry.tiles</result>
+		</action>
+
+		<!--delete Enquiry -->
+		<action name="deleteEnquiryDetails" class="com.om.member.action.EnquiryAction"
+			method="deleteEnquiryDetails">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/enquiry.tiles</result>
+			<result name="invalid.token" type="tiles">/enquiry.tiles</result>
+		</action>
+
+
+		<!-- Re-Enquiry Form -->
+		<action name="reEnquiryDetails" class="com.om.member.action.EnquiryAction"
+			method="checkreplyDate">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/enquiryUpdate.tiles</result>
+			<result name="invalid.token" type="tiles">/enquiryUpdate.tiles
+			</result>
+		</action>
+		
+		<!-- open Enquiry Details Between Date -->
+			<action name="EnquiryBetweenDateReport" class="com.om.member.action.ReportAction"
+				method="openenquiryDetailsBetweenDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/enquiryDetailsBetweenDate.tiles</result>
+			</action>
+		<!-- open Enquiry Details By One Date -->
+			<action name="EnquiryByOneDateReport" class="com.om.member.action.ReportAction"
+				method="openEnquiryByOneDateReport">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/enquiryDetailsByOneDate.tiles</result>
+			</action>
+
+		<!--appointment Form on menu action -->
+		<action name="appointment" class="com.om.member.action.AppointmentAction"
+			method="appointment">
+			<result name="success" type="tiles">/appointment.tiles</result>
+		</action>
+		<!--save Appointment Details action -->
+		<action name="saveAppointmentDetails" class="com.om.member.action.AppointmentAction"
+			method="saveAppointmentDetails">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/appointment.tiles</result>
+			<result name="invalid.token" type="tiles">/appointment.tiles</result>
+		</action>
+		<!-- ************************** Member Registration Actions ***************************** -->
+		<!-- Open Member registration Form on menu action -->
+		<action name="memberRegistration" class="com.om.member.action.MemberRegistrationAction"
+			method="memberRegistration">
+			<interceptor-ref name="loginStack" />
+			<result name="success" type="tiles">/memberRegistration.tiles</result>
+		</action>
+
+		<!-- Save Member registration Form -->
+		<action name="saveMemberDetails" class="com.om.member.action.MemberRegistrationAction"
+			method="saveMemberDetails">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />			
+			<interceptor-ref name="execAndWait">
+     				<param name="delay">5000</param>
+                	<param name="delaySleepInterval">5000</param>
+     		</interceptor-ref> 
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">2097152</param>
+				<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<!--  <result name="redirect" type="redirect">${url}</result>   -->
+			<result name="redirect" type="tiles">/sendMessage.tiles</result>
+			
+			<result name="wait">wait.jsp</result> 
+			<result name="success" type="redirectAction">afterRegOpenMakePayment</result> 
+		 	<!-- <result name="success" type="tiles">/makePayment.tiles</result>  -->
+		 	<result name="error" type="redirectAction">memberRegistration</result>	
+			<result name="invalid.token" type="tiles">/memberRegistration.tiles</result>
+			
+			
+			
+		</action>
+
+		<!-- Open Update Member registration Form on menu action -->
+		<action name="updateMemberRegistration" class="com.om.member.action.MemberRegistrationAction"
+			method="updateMemberRegistration">
+			<result name="success" type="tiles">/updateMemberRegistration.tiles
+			</result>
+
+		</action>
+
+		<!-- Update Member registration Form action -->
+		<action name="updateMemberDetails" class="com.om.member.action.MemberRegistrationAction"
+			method="updateMemberDetails">
+			<interceptor-ref name="loginStack" />
+			<result name="success" type="tiles">/updateMemberRegistration.tiles
+			</result>
+			<result name="nodata" type="redirectAction">updateMemberRegistration</result>
+			<result name="invalid.token" type="tiles">/updateMemberRegistration.tiles
+			</result>
+			<result name="invalid.token" type="tiles">/updateMemberRegistration.tiles
+			</result>
+		</action>
+
+		<!-- Open Cancel Member registration Form on menu action -->
+		<action name="cancelMember" class="com.om.member.action.MemberRegistrationAction"
+			method="cancelMember">
+			<result name="success" type="tiles">/cancelMember.tiles</result>
+		</action>
+
+		<!-- Cancel Member registration action -->
+		<action name="cancelMemberDetails" class="com.om.member.action.MemberRegistrationAction"
+			method="cancelMemberDetails">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="redirectAction">home</result>
+			<result name="invalid.token" type="tiles">/cancelMember.tiles</result>
+		</action>
+		<!-- Open Re-join Member registration Form on menu action -->
+		<action name="reJoinMember" class="com.om.member.action.MemberRegistrationAction"
+			method="reJoinMember">
+			<result name="success" type="tiles">/reJoinMember.tiles</result>
+		</action>
+		<!-- rejoin Member Details action -->
+		<action name="rejoinMemberDetails" class="com.om.member.action.MemberRegistrationAction"
+			method="rejoinMemberDetails">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+<!-- 			<result name="success" type="tiles">/reJoinMember.tiles</result>
+ -->			<result name="success" type="tiles">/reJoinMember.tiles</result>
+ 				<result name="invalid.token" type="tiles">/reJoinMember.tiles</result>
+		</action>
+		<!-- open search Member Details by mobile number -->
+		<action name="searchMember" class="com.om.member.action.MemberSearchAction"
+			method="searchMember">
+			<result name="success" type="tiles">/searchMember.tiles</result>
+		</action>
+		<!--  search Member Details by mobile number -->
+		<action name="searchMemberDetails" class="com.om.member.action.MemberSearchAction"
+			method="searchMemberDetails">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/searchMember.tiles</result>
+			<result name="invalid.token" type="tiles">/searchMember.tiles</result>
+		</action>
+		
+		<!--********************************************************************************* -->
+
+		<!-- ************************** Attendance Actions ***************************** -->
+		<!-- Open Attendance Form on menu action -->
+		<action name="attendance" class="com.om.member.action.AttendanceAction"
+			method="attendance">
+			<result name="success" type="tiles">/attendance.tiles</result>
+		</action>
+		<!--********************************************************************************* -->
+		<!-- ************************** Member Medical History Actions ***************************** -->
+		<!-- Open Member Medical History -->
+		<action name="memberMedicalHistory" class="com.om.member.action.MemberMedicalHistoryAction"
+			method="openMedicalHistory">
+			<result name="success" type="tiles">/memberMedicalHistory.tiles
+			</result>
+		</action>
+
+		<!-- Save Member Medical History -->
+		<action name="saveMemberMedicalHistory" class="com.om.member.action.MemberMedicalHistoryAction"
+			method="saveMemberMedicalHistory">
+			<interceptor-ref name="loginStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="tiles">/memberMedicalHistory.tiles
+			</result>
+			<result name="invalid.token" type="tiles">/memberMedicalHistory.tiles
+			</result>
+		</action>
+		<!-- ************************** Member Registration Report Actions ***************************** -->
+
+		<!-- Total Member details Form on menu action -->
+		<action name="totalMemberDetails" class="com.om.member.action.ReportAction"
+			method="totalMemberDetails">
+			<interceptor-ref name="loginStack" />
+			<result name="success" type="tiles">/totalMemberDetails.tiles
+			</result>
+		</action>
+
+		<!-- Member details by package Form on menu action -->
+		<action name="memberDetailsByPackage" class="com.om.member.action.ReportAction"
+			method="memberDetailsByPackage">
+			<interceptor-ref name="loginStack" />
+			<result name="success" type="tiles">/memberDetailsByPackage.tiles
+			</result>
+		</action>
+		<!-- Member registration Form on menu action -->
+		<action name="memberRegistrationDetailsByDate" class="com.om.member.action.ReportAction"
+			method="memberRegistrationDetailsByDate">
+			<interceptor-ref name="loginStack" />
+			<result name="success" type="tiles">/memberRegistrationDetailsByDate.tiles
+			</result>
+		</action>
+		<!-- Member Registration Details By Gender Form on menu action -->
+		<action name="memberRegistrationDetailsByGender" class="com.om.member.action.ReportAction"
+			method="memberRegistrationDetailsByGender">
+			<result name="success" type="tiles">/memberRegistrationDetailsByGender.tiles
+			</result>
+		</action>
+		<!-- Cancel Member registration Form on menu action -->
+		<action name="cancelMemberDetailsByDate" class="com.om.member.action.ReportAction"
+			method="cancelMemberDetailsByDate">
+			<result name="success" type="tiles">/cancelMemberDetailsByDate.tiles
+			</result>
+		</action>
+		<!-- Member Details By HourType Form on menu action -->
+		<action name="openHourTypeReport" class="com.om.member.action.ReportAction"
+			method="openHourTypeReport">
+			<result name="success" type="tiles">/memberDetailsByHourType.tiles
+			</result>
+		</action>
+		
+		<!-- ****************************************************************************** -->
+		
+
+		<!-- ************************** Attendance Report Actions ***************************** -->
+		<!-- Attendance List Between Date Form on menu action -->
+		<action name="attendanceListBetweenDate" class="com.om.member.action.AttendanceReportAction"
+			method="attendanceListBetweenDate">
+			<result name="success" type="tiles">/attendanceListBetweenDate.tiles
+			</result>
+		</action>
+		<!-- Attendance List By Date Form on menu action -->
+		<action name="attendanceListByDate" class="com.om.member.action.AttendanceReportAction"
+			method="attendanceListByDate">
+			<result name="success" type="tiles">/attendanceListByDate.tiles
+			</result>
+		</action>
+		<!-- Attendance List By Date Form on menu action -->
+		<action name="attendanceListByDateandId" class="com.om.member.action.AttendanceReportAction"
+			method="attendanceListByDateandId">
+			<result name="success" type="tiles">/attendanceListByDateandId.tiles
+			</result>
+		</action>
+
+		<!-- ****************************************************************************** -->
+		<!--*****************Member Measurement Card************************************* -->
+		<action name="memberMeasurementCard" class="com.om.member.action.MemberMeasurementCardAction"
+			method="memberMeasurementCard">
+			<result name="success" type="tiles">/memberMeasurementCardDetails.tiles
+			</result>
+		</action>
+
+		<!--*****************Member Measurement Card details by id************************************* -->
+		<action name="memberMeasurementCardDetailsById" class="com.om.member.action.MemberMeasurementCardAction"
+			method="memberMeasurementCardDetailsById">
+			<result name="success" type="tiles">/memberMeasurementCardDetailsById.tiles
+			</result>
+		</action>
+
+
+		<!--***************** Save Member Measurement Card************************************* -->
+		<action name="saveMemberMeasurementCard" class="com.om.member.action.MemberMeasurementCardAction"
+			method="saveMemberMeasurementCard">
+			<result name="success" type="tiles">/memberMeasurementCardDetails.tiles
+			</result>
+		</action>
+		<!-- ****************************************************************************** -->
+
+<!-- Member details by package And Ledger Form on menu action -->
+		<action name="memberDetailsByPackageAndLedger" class="com.om.member.action.ReportAction"
+			method="memberDetailsByPackageAndLedger">
+			<interceptor-ref name="loginStack" />
+			<result name="success" type="tiles">/memberDetailsByPackageAndLedger.tiles
+			</result>
+		</action>
+
+
+<!-- Member Expiry Report JSP Page -->
+	<action name="memberExpiryReport" class="com.om.member.action.ReportAction" 
+		method="openMemberExpiryReport">
+	<interceptor-ref name="loginStack" />
+	<result name="success" type="tiles">/memberExpiryReport.tiles</result>
+	</action>
+
+<!-- ****************************************************************************** -->
+<!-- open Birthday Details Between Date -->
+			<action name="birthdayBetweenDate" class="com.om.member.action.BirthdayBetweenDateAction"
+				method="openBirthdayBetweenDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/birthDayBetweenDateReport.tiles</result>
+			</action>
+			
+			
+<!-- ****************************************************************************** -->
+<!-- open Anniversary Details Between Date -->
+			<action name="anniversaryBetweenDate" class="com.om.member.action.BirthdayBetweenDateAction"
+				method="openAnniversaryBetweenDate">
+				 <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/anniversaryBetweenDateReport.tiles</result>
+			</action>
+			<!-- ****************************************************************************** -->
+<!-- memberBodyDetails open page -->
+			<action name="memberBodyDetailsOpen" class="com.om.member.action.MemberBodyDetails"
+			method="openMemberBodyDetailsM">
+			
+			<!--  <interceptor-ref name="loginStack" />  -->
+				<result name="success" type="tiles">/MemberBodyDetails.tiles</result>
+			</action>
+			
+			
+				<!-- ****************************************************************************** -->
+<!-- memberBodyDetails Save -->
+			<action name="saveMemberDetail" class="com.om.member.action.MemberBodyDetails" method="SaveMemberBodyDetails" >
+			<!-- <interceptor-ref name="loginStack" />  -->
+				<result name="success" type="tiles">/MemberBodyDetails.tiles</result>
+			
+			</action>
+			<!-- memberBodyDetailsReport -->
+			
+			<action name="memberBodyDetailsReport" class="com.om.member.action.MemberBodyDetails" method="reportMemberBodyDetails" >
+			<result name="success" type="tiles">/MemberBodyDetailsReport.tiles</result>
+			</action>
+			<action name="DisplayWholeRecord" class="com.om.member.action.EditionPrintMember" method="printMember">
+			<result name="success" type="">/jsp/Member/DisplayMemberDetails.jsp</result>
+			 </action>
+			
+	</package>
+</struts>

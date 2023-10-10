@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TotalVechicleReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7820274b-6068-4117-abb5-65f517cf6fad">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="ownerName" class="java.lang.String"/>
+	<parameter name="vehicleNumber" class="java.lang.String"/>
+	<parameter name="dieselQuentity" class="java.lang.String"/>
+	<parameter name="driverAdvanceAmount" class="java.lang.String"/>
+	<parameter name="driverBounsAmount" class="java.lang.String"/>
+	<parameter name="dieselAmount" class="java.lang.String"/>
+	<parameter name="TotalAmt" class="java.lang.String"/>
+	<parameter name="PendingAmount" class="java.lang.String"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT p.paymentid, p.PaymentDate, p.ownerName, p.paidAmount, p.vehicleNumber FROM paymentmodemodel p where p.ownerName =$P{ownerName} and p.vehicleNumber=$P{vehicleNumber} and p.PaymentDate between $P{fromDate} and $P{toDate}]]>
+	</queryString>
+	<field name="paymentid" class="java.lang.Integer"/>
+	<field name="PaymentDate" class="java.lang.String"/>
+	<field name="ownerName" class="java.lang.String"/>
+	<field name="paidAmount" class="java.lang.Double"/>
+	<field name="vehicleNumber" class="java.lang.String"/>
+	<variable name="TotalPaid" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{paidAmount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="cdad989c-b70b-419c-bf2c-048900e56dc1" x="195" y="17" width="134" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="f3dc2172-a9b2-49f3-82de-bbe4d6b30ac7" x="195" y="17" width="121" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Details]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="f911164b-754b-44e2-a862-42d13f01617e" x="18" y="42" width="508" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="343796be-b283-40bb-94e6-d952d5cecef3" x="0" y="0" width="155" height="31" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="0be2427b-3f19-45ae-8325-8fc614b6984f" x="0" y="0" width="155" height="31" backcolor="#CCCCCC"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="baeef4f9-2921-41d5-9e8d-48599cd88fda" x="155" y="0" width="109" height="31" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="25b66adf-b043-49b3-8a33-6669f27c5dda" x="155" y="0" width="109" height="31"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="caa44cdf-46e1-4a28-922b-f85b0e8150f7" x="264" y="0" width="162" height="31" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="ba29a6e3-a1ed-4b4f-afed-b75d6e7f85f2" x="264" y="0" width="162" height="31"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Number]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="a9d9948a-d40a-400e-8350-52ed43c81e01" x="426" y="0" width="100" height="31" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="dfd9ff84-436d-4a51-a63c-cd9a58802f88" x="426" y="0" width="100" height="31"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paid Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement uuid="a0fd8a9e-d6ef-4a17-8a02-e4eae62b87b0" x="0" y="0" width="155" height="29"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0afbfbdd-e793-44e8-8212-8dcda348b2f6" x="155" y="0" width="109" height="29"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PaymentDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f958720d-9866-44db-bd85-137d2b420ec4" x="264" y="0" width="162" height="29"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vehicleNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="065263f9-f7b8-4857-991a-148b8a7414ad" x="426" y="0" width="100" height="29"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{paidAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="bfd34525-dba3-45c5-8f30-6976a6b7706e" x="264" y="0" width="162" height="28" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="b0106a35-08cd-45b4-9b74-391cbeeb1c16" x="264" y="0" width="162" height="28"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Paid]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7cf5c0d1-5617-4ff9-a2bd-afd155cb1c88" x="426" y="0" width="100" height="28"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalPaid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,153 @@
+.notification {
+	font-size: 12px;
+	font-weight: normal;
+	color: #000;
+	vertical-align: baseline;
+	white-space: nowrap;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.notification hr{
+	width: 100%;
+	float: left;
+	margin: 10px 0;
+}
+.notification .notification_header{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #d5cea6;
+	padding: 5px;
+/* 	width: 100px; */
+ width: 135px;
+	float: left;
+	margin: 0 5px 0 0;
+}
+
+.notification .click_notification_header{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #d5cea6;
+	padding: 5px;
+/* 	width: 100px; */
+ width: 120px;
+	float: left;
+	margin: 0 5px 0 0;
+	
+	
+	background-repeat: repeat-x;
+		/* Firefox 3.6+ */
+	background: -moz-linear-gradient(100% 100% 90deg, #555, #fff);
+		
+		/* Safari 4-5, Chrome 1-9 */ /* -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#555));
+		
+		/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-linear-gradient(#555, #fff);
+		
+		/* Opera 11.10+ */
+	background: -o-linear-gradient(#555, #fff);
+	
+}
+
+.notification_header{
+		cursor:pointer;
+		
+		background-repeat: repeat-x;
+		/* Firefox 3.6+ */
+		background: -moz-linear-gradient(100% 100% 90deg, #ccc, #fff);
+		
+		/* Safari 4-5, Chrome 1-9 */ /* -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ccc));
+		
+		/* Safari 5.1+, Chrome 10+ */
+		background: -webkit-linear-gradient(#ccc, #fff);
+		
+		/* Opera 11.10+ */
+		background: -o-linear-gradient(#ccc, #fff);
+}
+
+.click_notification_header{	
+	color:#00f;
+	
+	background-repeat: repeat-x;
+		/* Firefox 3.6+ */
+	background: -moz-linear-gradient(100% 100% 90deg, #555, #fff);
+		
+		/* Safari 4-5, Chrome 1-9 */ /* -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#555));
+		
+		/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-linear-gradient(#555, #fff);
+		
+		/* Opera 11.10+ */
+	background: -o-linear-gradient(#555, #fff);
+}
+
+.notification_header:hover{
+	/* background-color: #F5F5F5; */
+	color: rgb(50,50,200);
+	
+	
+	background-repeat: repeat-x;
+		/* Firefox 3.6+ */
+	background: -moz-linear-gradient(100% 100% 90deg, #555, #fff);
+		
+		/* Safari 4-5, Chrome 1-9 */ /* -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#555));
+		
+		/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-linear-gradient(#555, #fff);
+		
+		/* Opera 11.10+ */
+	background: -o-linear-gradient(#555, #fff);
+	
+}
+
+.notification .notification_area{
+	background-color: #FFFFFF;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #d5cea6;
+	padding: 5px;
+	float: left;
+	 width: 100%; 
+	/* width: 105%; */
+	height: 1;
+	display: none;
+}
+
+.member, .checkedMember , .renewBefore, .renewAfter{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #d5cea6;
+	 /* padding: 6%; */
+	 padding: 2% 20% 4% 2%;
+    width: 80%;
+	/* padding: 5px;
+	width: 350px; */
+	height: 100px;
+	cursor:pointer;
+}
+.renewBefore{
+	background-color: #FFFF00;
+	cursor:pointer;
+}
+.renewAfter{
+	background-color: #FF3333;cursor:pointer;
+}
+.checkedMember{
+	background-color: #E6E6E6;
+	cursor:pointer;
+}
+.member:hover, .checkedMember:hover, .renewBefore:hover, .renewAfter:hover{
+	background-color: #F5F5F5;
+	cursor:pointer;
+}
+.member table, .checkedMember table, .renewBefore table, .renewAfter table{
+	margin: 3px 0px;
+	cursor:pointer;	
+}

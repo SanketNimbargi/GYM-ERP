@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="pt-jasper" extends="jasperreports-default">
+	
+		<!-- **************** Personal Trainer Details By Date Report Master ****************** -->
+		<action name="personaltrainerDetailsByDate" class="com.om.pt.action.PersonalTrainerReportAction" method="printPTDetailsByDate">
+			<result name="success" type="jasper">
+				<param name="location">report/PersonalTrainer/personalTrainerDetailsByDate.jasper</param>
+				<param name="dataSource">ptDetails</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		<!-- **************** Personal Trainer Details All Report Master ****************** -->
+		<action name="printPTDetailsAll" class="com.om.pt.action.PersonalTrainerReportAction" method="printPTDetailsAll">
+			<result name="success" type="jasper">
+				<param name="location">report/PersonalTrainer/personalTrainerDetailsAll.jasper</param>
+				<param name="dataSource">ptDetails</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+		<!-- ***************Personal Trainer Details List Between Date By Id ***************** -->
+		<action name="printPTAttendanceBetweenDateById" class="com.om.member.action.AttendanceReportAction" method="printPTAttendanceBetweenDateById">
+			<result name="success" type="jasper">
+				<param name="location">report/Member/attendanceListBetweenDateById.jasper</param>
+				<param name="dataSource">personalTrainerDetailsList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+			<!-- ***************Personal Trainer Wise Member ***************** -->
+		<action name="printPtwiseMember" class="com.om.pt.action.PersonalTrainerReportAction" method="printPtwiseMember">
+			<result name="success" type="jasper">
+				<param name="location">report/PersonalTrainer/PersonalTrainerWiseMemberReport.jasper</param>
+				<param name="dataSource">ptWiseMemberList</param>
+				<param name="reportParameters">parameters</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

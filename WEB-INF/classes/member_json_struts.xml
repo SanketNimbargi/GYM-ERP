@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="member-json" extends="json-default">
+	
+		<!-- *********************** Member AJAX Actions *********************** -->
+			<!-- Fetch Member Details  -->
+			<action name="fetchMemberDetails" class="com.om.member.action.MemberAjaxAction" method="fetchMemberDetails">
+			    <result type="json"></result>
+			</action> 
+			<!-- Fetch Cancel Member Details  -->
+			<action name="fetchCancelMemberDetails" class="com.om.member.action.MemberAjaxAction" method="fetchCancelMemberDetails">
+			    <result type="json"></result>
+			</action>
+			
+			<!-- fetch Active Members -->
+			<action name="fetchActiveMembers" class="com.om.login.action.BaseAction" method="getSession">
+				<result type="json"></result>
+			</action>
+		<!-- ********************************************************* -->
+		
+		<!-- *********************** Member AJAX Actions *********************** -->
+			<!-- Fetch Member Details  -->
+			<action name="fetchrecord" class="com.om.member.action.EnquiryAjaxAction" method="fetchDetails">
+			    <result type="json"></result>
+			</action>
+		<!-- ***********************Member Attendance AJAX Actions *********************** -->
+			<!-- Fetch Members and Attendance Details For Attendance -->
+			<action name="fetchMemberAttendance" class="com.om.member.action.AttendanceAjaxAction" method="fetchMemberAttendance">
+			    <result type="json"></result>
+			</action>
+			<!-- Save In Time for Attendance -->
+			<action name="saveInTime" class="com.om.member.action.AttendanceAjaxAction" method="saveInTime">
+			    <result type="json"></result>
+			</action>
+			<!-- Save Out Time for Attendance -->
+			<action name="saveOutTime" class="com.om.member.action.AttendanceAjaxAction" method="saveOutTime">
+			    <result type="json"></result>
+			</action>
+			<!-- Save Out Time for Attendance -->
+			<action name="matchFingerPrint" class="com.om.member.action.AttendanceAjaxAction" method="matchFingerPrint">
+			    <result type="json"></result>
+			</action>
+		<!-- ********************************************************* -->
+		
+		
+			
+			<!-- Save Personal Trainer In Time -->
+			<action name="savePTInTime" class="com.om.member.action.AttendanceAjaxAction" method="savePTInTime">
+				<result type="json"></result>
+			</action>
+			
+			<!-- Save Personal Trainer Out Time -->
+			<action name="savePTOutTime" class="com.om.member.action.AttendanceAjaxAction" method="savePTOutTime">
+				<result type="json"></result>
+			</action>
+		
+		<!-- *********************** Member Medical History AJAX Actions *********************** -->
+			<!-- Fetch Member Details  -->
+			<action name="fetchmedicalhistoryrecord" class="com.om.member.action.MemberMedicalHistoryAction" method="fetchmedicalhistoryrecord">
+			    <result type="json"></result>
+			</action> 
+			 
+			 <action name="ImageServlet" class="com.om.member.action.MemberRegistrationAction" method="saveImage">
+			 	<result type="json"></result>
+			 </action> 
+		<!-- *********************** Members General Ajax Actions *********************** --> 
+			 <action name="getReceiptDetails" class="com.om.member.action.MemberAjaxAction" method="getReceiptDetails">
+			 	<result type="json"></result>
+			 </action> 
+			 <action name="pendingFeesDiscusionDetails" class="com.om.member.action.MemberAjaxAction" method="pendingFeesDiscusionDetails">
+			 	<result type="json"></result>
+			 </action> 
+			 <action name="getPendingFeesDiscusionDetails" class="com.om.member.action.MemberAjaxAction" method="getPendingFeesDiscusionDetailsAction">
+			 	<result type="json"></result>
+			 </action> 
+			 <action name="activeUsersDiscusionDetails" class="com.om.member.action.MemberAjaxAction" method="activeUsersDiscusionDetails">
+			 	<result type="json"></result>
+			 </action> 
+			 <action name="getActiveUsersDiscusionDetailsList" class="com.om.member.action.MemberAjaxAction" method="getActiveUsersDiscusionDetailsList">
+			 	<result type="json"></result>
+			 </action> 
+			 
+			 <action name="checkContactOfMemberExist" class="com.om.member.action.MemberAjaxAction" method="checkContactOfMemberExist">
+			 	<result type="json"></result>
+			 </action> 
+	</package>
+</struts>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CommonReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8388ab37-9575-4d68-8f97-65586128fff2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="77"/>
+	<parameter name="driverBounsAmount" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="FromD" class="java.lang.String"/>
+	<parameter name="toD" class="java.lang.String"/>
+	<parameter name="PendingAmount" class="java.lang.String"/>
+	<parameter name="TotalAmt" class="java.lang.String"/>
+	<parameter name="dieselAmount" class="java.lang.String"/>
+	<parameter name="driverAdvanceAmount" class="java.lang.String"/>
+	<parameter name="dieselQuentity" class="java.lang.String"/>
+	<parameter name="vehicleNumber" class="java.lang.String"/>
+	<parameter name="ownerName" class="java.lang.String"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from vehicledetailsmodel]]>
+	</queryString>
+	<field name="vehicleDId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="driverName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endTimeVehicle" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ownerName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ratePerHours" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rateStatus" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="remark" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="startTimeVehicle" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="timePeriod" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalAmount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleType" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="siteId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="310" splitType="Stretch">
+			<rectangle>
+				<reportElement x="31" y="192" width="100" height="20" backcolor="#CCCCCC" uuid="dad97b2a-eb1b-4078-adae-e8aa89b23194"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="200" y="92" width="152" height="31" backcolor="#CCCCCC" uuid="c890a83e-cd6b-4bef-8328-c727ee7ce851"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="307" y="193" width="100" height="20" backcolor="#CCCCCC" uuid="e4d96f3a-e12a-4e47-8d9b-9b9ef8b0a8c5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="305" y="154" width="100" height="20" backcolor="#CCCCCC" uuid="58f24e54-6897-4085-850a-f33e4b12a315"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="31" y="153" width="94" height="20" backcolor="#CCCCCC" uuid="ccd307c7-bd1b-4db6-8798-5198003d9445"/>
+			</rectangle>
+			<image>
+				<reportElement x="112" y="0" width="340" height="66" uuid="416685fb-5231-44c6-9e4c-8735424a28d8"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="413" y="155" width="100" height="20" uuid="ddd3cb2c-8200-4ed7-99f6-fd31280ac96f"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="201" y="91" width="152" height="31" uuid="f360a741-5c2d-44e7-8dfa-8d8adc4a2898"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Driver Expences ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="154" y="192" width="100" height="20" uuid="f4c0cedf-cb30-44e6-9340-fde1adf0ec0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vehicleNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="191" width="121" height="20" backcolor="#CCCCCC" uuid="a267295f-2890-414f-8d1a-62627c58fe8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Number :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="153" width="130" height="20" uuid="6cf9c840-b813-4005-9932-d5c49cd69b57"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ To Date            :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="192" width="119" height="20" uuid="7dabb47a-fce0-472d-9509-90208c100bec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Owner Name       :-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="138" y="153" width="100" height="20" uuid="240587b0-0501-4326-be8e-d46d55c99849"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="152" width="121" height="20" uuid="1a3a7c59-8b22-4b76-b5f2-f72438583c42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From Date         :-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="421" y="192" width="100" height="20" uuid="1fe60c22-b3b7-431d-9db5-c4e8ab11b4c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ownerName}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="3" y="229" width="186" height="81" uuid="50d78db8-2e07-456b-a6a2-a242a55a3a0e"/>
+				<subreportParameter name="toDate">
+					<subreportParameterExpression><![CDATA[$P{toD}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PendingAmount">
+					<subreportParameterExpression><![CDATA[$P{PendingAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fromDate">
+					<subreportParameterExpression><![CDATA[$P{FromD}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TotalAmt">
+					<subreportParameterExpression><![CDATA[$P{TotalAmt}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dieselAmount">
+					<subreportParameterExpression><![CDATA[$P{dieselAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="driverAdvanceAmount">
+					<subreportParameterExpression><![CDATA[$P{driverAdvanceAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dieselQuentity">
+					<subreportParameterExpression><![CDATA[$P{dieselQuentity}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="vehicleNumber">
+					<subreportParameterExpression><![CDATA[$P{vehicleNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ownerName">
+					<subreportParameterExpression><![CDATA[$P{ownerName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="driverBounsAmount">
+					<subreportParameterExpression><![CDATA[$P{driverBounsAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\report\\VehicleOwnerPaymentTransactionR.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="86" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="187" height="86" uuid="3f79cc15-8ba3-48dc-845d-04d3f116034f"/>
+				<subreportParameter name="banner"/>
+				<subreportParameter name="fromDate">
+					<subreportParameterExpression><![CDATA[$P{fromDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="toDate">
+					<subreportParameterExpression><![CDATA[$P{toDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ownerName">
+					<subreportParameterExpression><![CDATA[$P{ownerName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="vehicleNumber">
+					<subreportParameterExpression><![CDATA[$P{vehicleNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dieselQuentity">
+					<subreportParameterExpression><![CDATA[$P{dieselQuentity}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="driverAdvanceAmount">
+					<subreportParameterExpression><![CDATA[$P{driverAdvanceAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="driverBounsAmount"/>
+				<subreportParameter name="dieselAmount"/>
+				<subreportParameter name="TotalAmt"/>
+				<subreportParameter name="PendingAmount"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\report\\SubReportDemo1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="81">
+			<subreport>
+				<reportElement x="0" y="0" width="187" height="81" uuid="b1e1073c-fbee-4572-bae5-3358b06b4cc2"/>
+				<subreportParameter name="fromDate">
+					<subreportParameterExpression><![CDATA[$P{fromDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="toDate">
+					<subreportParameterExpression><![CDATA[$P{toDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ownerName">
+					<subreportParameterExpression><![CDATA[$P{ownerName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="vehicleNumber">
+					<subreportParameterExpression><![CDATA[$P{vehicleNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dieselQuentity"/>
+				<subreportParameter name="driverAdvanceAmount"/>
+				<subreportParameter name="driverBounsAmount"/>
+				<subreportParameter name="dieselAmount"/>
+				<subreportParameter name="TotalAmt"/>
+				<subreportParameter name="PendingAmount"/>
+				<subreportParameter name="banner"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\report\\TotalVechicleReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

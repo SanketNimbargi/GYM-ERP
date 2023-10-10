@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<!-- *********************Base Layout********************** -->
+	<definition name="baseLayout" template="/baseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="sideMenu" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+	<!-- *********************Gym Menu********************** -->
+		<definition name="gymLayout" extends="baseLayout">
+			<put-attribute name="title" value="Notification" />
+			<put-attribute name="menu" value="/jsp/Common/gymMenu.jsp" />
+		    <put-attribute name="sideMenu" value="/jsp/Common/gymHome.jsp" /> 
+		</definition> 
+	<!-- *************************** Admin Tiles ************************* -->
+	
+		<!-- *********************Admin Menu********************** -->
+	<!-- 	<definition name="adminLayout" extends="baseLayout">
+			<put-attribute name="title" value="Home" />
+			<put-attribute name="menu" value="/jsp/Admin/adminMenu.jsp" />
+			</definition> --> 
+		
+		<definition name="adminLayout" extends="gymLayout">
+			<put-attribute name="title" value="Home" />		
+		</definition>
+		<!-- *********************Admin Home tiles********************** -->
+		<definition name="/adminHome.tiles" extends="adminLayout">
+			<put-attribute name="title" value="Admin" />
+			<put-attribute name="body" value="/jsp/Admin/adminHome.jsp" />
+		</definition> 
+		
+		
+		<!-- *********************Back up and  tiles********************** -->
+		<definition name="/restore.tiles" extends="adminLayout">
+			<put-attribute name="title" value="Admin" />
+			<put-attribute name="body" value="/jsp/Admin/restore.jsp" />
+		</definition> 
+		
+		<!-- **************************create user tiles*********************** -->
+		
+		<definition name="/createUser.tiles" extends="adminLayout">
+			<put-attribute name="title" value="Admin" />
+			<put-attribute name="body" value="/jsp/Admin/createUser.jsp" />
+		</definition> 
+	<!-- ********************************************************************** -->
+	
+
+	<!-- *************************** Gym Common Tiles ************************* -->
+	
+		
+		
+		<!-- *********************Gym Home tiles********************** -->
+		
+		<definition name="/home.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Home Page" />
+			<put-attribute name="body" value="/jsp/Common/home.jsp" />
+		</definition>
+		<definition name="/gymHome.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Home Page" />
+			<put-attribute name="body" value="/jsp/Common/gymHome.jsp" />
+		</definition>
+	<!-- ********************************************************************** -->
+	
+	<!-- *************************** Member Tiles ************************* -->
+	
+	<!-- *********************Gym Fitness goal tiles********************** -->
+		<definition name="/fitnessgoal.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Fitness Goal" />
+			<put-attribute name="body" value="/jsp/Member/fitnessgoal.jsp" />
+		</definition> 
+		
+	<!-- *********************Gym Enquiry tiles********************** -->
+		<definition name="/enquiry.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Enquiry Details" />
+			<put-attribute name="body" value="/jsp/Member/enquiry.jsp" />
+		</definition>  
+	<!--**********************Enquiry Between Date Report *******************  -->
+		<definition name="/enquiryDetailsBetweenDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Enquiry Report Between Date" />
+			<put-attribute name="body" value="/jsp/Member/EnquiryBetweenDateReport.jsp" />
+		</definition>
+	<!--**********************Enquiry By One Date Report *******************  -->
+		<definition name="/enquiryDetailsByOneDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Enquiry Report Between Date" />
+			<put-attribute name="body" value="/jsp/Member/EnquiryDetailsByOneDate.jsp" />
+		</definition>	
+			<!-- *********************Gym Enquiry Message tiles********************** -->
+		<definition name="/sendMessage.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Messasge To Member" />
+			<put-attribute name="body" value="/jsp/Common/messageFeedback.jsp" />
+			<put-attribute name="menu" value="" />
+		    <put-attribute name="sideMenu" value="" /> 
+		</definition>  
+		
+		<!-- *********************Gym Enquiry Update tiles********************** -->
+		<definition name="/enquiryUpdate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Update Enquiry Details" />
+			<put-attribute name="body" value="/jsp/Member/enquiryUpdate.jsp" />
+		</definition>  
+		<!-- *********************client appointment tiles********************** -->
+		<definition name="/appointment.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Appointment" />
+			<put-attribute name="body" value="/jsp/Member/appointment.jsp" />
+		</definition>
+		<!-- *********************Gym Member Registration tiles********************** -->
+		<definition name="/memberRegistration.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Register Member" />
+			<put-attribute name="body" value="/jsp/Member/memberRegistration.jsp" />
+		</definition>
+		
+		
+			<!-- *********************Gym Update Member Registration tiles********************** -->
+		<definition name="/updateMemberRegistration.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Update Member" />
+			<put-attribute name="body" value="/jsp/Member/updateMemberRegistration.jsp" />
+		</definition>
+		
+			<!-- ********************* Cancel Member Registration tiles********************** -->
+		<definition name="/cancelMember.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Cancel Member" />
+			<put-attribute name="body" value="/jsp/Member/cancelMember.jsp" />
+		</definition>  
+		<!-- ********************* Re-join Member Registration tiles********************** -->
+		<definition name="/reJoinMember.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Re-Join Member" />
+			<put-attribute name="body" value="/jsp/Member/reJoinMember.jsp" />
+		</definition> 
+		 <!-- ********************* Search Member By mobile no.********************** -->
+		<definition name="/searchMember.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Search Member" />
+			<put-attribute name="body" value="/jsp/Member/memberSearch.jsp" />
+		</definition>  
+		
+		<!-- ********************* Total Member Details tiles********************** -->
+		<definition name="/totalMemberDetails.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Total Member Details" />
+			<put-attribute name="body" value="/jsp/Member/totalMemberDetails.jsp" />
+		</definition> 
+		
+		<!-- ********************* Member Medical History********************** -->
+		<definition name="/memberMedicalHistory.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Medical History" />
+			<put-attribute name="body" value="/jsp/Member/memberMedicalHistory.jsp" />
+		</definition>  
+		<!-- ********************* Member Registration Details By Date tiles********************** -->
+		<definition name="/memberRegistrationDetailsByDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Registration Details By Date" />
+			<put-attribute name="body" value="/jsp/Member/memberRegistrationDetailsByDate.jsp" />
+		</definition> 
+		
+		<!-- ********************* Member Registration Details By Date tiles********************** -->
+		<definition name="/cancelMemberDetailsByDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Registration Details By Date" />
+			<put-attribute name="body" value="/jsp/Member/cancelMemberDetailsByDate.jsp" />
+		</definition> 
+		
+		
+		<!-- ********************* Member Registration Details By Package tiles********************** -->
+		<definition name="/memberDetailsByPackage.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Registration Details By package" />
+			<put-attribute name="body" value="/jsp/Member/memberDetailsByPackage.jsp" />
+		</definition> 
+		
+		<!-- ********************* Member Registration Details By Package tiles********************** -->
+		<definition name="/memberDetailsByPackageAndLedger.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Registration Details By package And Ledger" />
+			<put-attribute name="body" value="/jsp/Member/memberDetailsByPackageAndLedger.jsp" />
+		</definition> 
+		
+		<!-- ********************* Attendance tiles********************** -->
+		<definition name="/attendance.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Attendance" />
+			<put-attribute name="body" value="/jsp/Member/attendance.jsp" />
+		</definition>
+		<!-- *********************Attendance List Between Date Attendance tiles********************** -->
+		<definition name="/attendanceListBetweenDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Attendance" />
+			<put-attribute name="body" value="/jsp/Member/attendanceListBetweenDate.jsp" />
+		</definition>
+		
+		<!-- *********************Attendance List By Date tiles********************** -->
+		<definition name="/attendanceListByDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Attendance" />
+			<put-attribute name="body" value="/jsp/Member/attendanceListByDate.jsp" />
+		</definition>
+		
+		<!-- *********************Attendance List By Date and By Id tiles********************** -->
+		<definition name="/attendanceListByDateandId.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Attendance" />
+			<put-attribute name="body" value="/jsp/Member/attendanceListByDateandId.jsp" />
+		</definition>
+		
+			<!-- *********************Member Registration Details By Gender tiles********************** -->
+		<definition name="/memberRegistrationDetailsByGender.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Details By Gender" />
+			<put-attribute name="body" value="/jsp/Member/memberRegistrationDetailsByGender.jsp" />
+		</definition>
+		
+			<!-- *********************Member Details By HourType tiles********************** -->
+		<definition name="/memberDetailsByHourType.tiles" extends="gymLayout">
+			<put-attribute name="title" value="HourType Report" />
+			<put-attribute name="body" value="/jsp/Member/openHourTypeReport.jsp" />
+		</definition>
+		 <!-- *********************************Member Measurement Card Details tiles****************** -->
+	    <definition name="/memberMeasurementCardDetails.tiles" extends="gymLayout">
+			<put-attribute name="title" value="member Measurement Card Details"/>
+			<put-attribute name="body" value="/jsp/Member/memberMeasurementCard.jsp" />
+		</definition>
+		 <!-- *************Member Measurement Card Details by id tiles****************** -->
+	    <definition name="/memberMeasurementCardDetailsById.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Measurement Card Details By Id"/>
+			<put-attribute name="body" value="/jsp/Member/memberMeasurementCardDetailsById.jsp" />
+		</definition>
+	<!-- ********************************************************************** -->
+		
+	<!-- ********************************************************************** -->
+	<!-- ********************************************************************** -->
+	
+	
+	<!-- ********************************************************************** -->
+	
+	
+	<!-- *************************** Personal Trainer Tiles ************************* -->
+	
+		<!-- *********************Gym Personal Trainer Registration tiles********************** -->
+		<definition name="/personalTrainerRegistration.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Personal Trainer Registration" />
+			<put-attribute name="body" value="/jsp/PersonalTrainer/personalTrainerRegistration.jsp" />
+		</definition>
+		<!-- *********************Gym Personal Trainer Registration tiles********************** -->
+		<definition name="/personalTrainerUpdate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Update Personal Trainer Registration" />
+			<put-attribute name="body" value="/jsp/PersonalTrainer/personalTrainerUpdate.jsp" />
+		</definition>
+		<!-- *********************Gym Personal Trainer Registration tiles********************** -->
+		<definition name="/personalTrainerRemove.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Remove Personal Trainer Registration" />
+			<put-attribute name="body" value="/jsp/PersonalTrainer/personalTrainerRemove.jsp" />
+		</definition> 
+		<!-- *********************Gym Personal Trainer Re-New tiles********************** -->
+		<definition name="/personalTrainerReNew.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Remove Personal Trainer Re-New" />
+			<put-attribute name="body" value="/jsp/PersonalTrainer/personalTrainerReNew.jsp" />
+		</definition>
+		<!-- *********************Gym Personal Trainer Details By Date********************** -->
+		<definition name="/personalTrainerDetailsByDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Personal Trainer Details By Date" />
+			<put-attribute name="body" value="/jsp/PersonalTrainer/PersonalTrainerDetailsByDate.jsp" />
+		</definition>
+		<!-- *********************Gym Personal Trainer Details By Date********************** -->
+		<definition name="/ptWiseMember.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Personal Trainer wise Member" />
+			<put-attribute name="body" value="/jsp/PersonalTrainer/personalTrainerWiseMember.jsp" />
+		</definition>
+		
+	<!-- ******************************** Account Tiles ************************************** -->
+		<!-- ********************* Make Payment tiles ********************** -->
+		<definition name="/makePaymentForm.tiles" extends="gymLayout">
+			<put-attribute name="title" value="PaymentForm" />
+			<put-attribute name="header" value="" />
+			<put-attribute name="menu" value="" />
+			<put-attribute name="sideMenu" value="" />
+			<put-attribute name="body" value="/jsp/Account/openMakePaymentOrUpdatePaymentForm.jsp" />
+			<put-attribute name="footer" value="" />			
+		</definition>
+		<definition name="/makePayment.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Make Payment" />
+			<put-attribute name="body" value="/jsp/Account/makePayment.jsp" />
+		</definition>
+		<!-- ********************* Update Payment tiles ********************** -->
+		<definition name="/makePaymentUpdate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Update Payment" />
+			<put-attribute name="body" value="/jsp/Account/makePaymentUpdate.jsp" />
+		</definition>
+	
+		<!-- ********************* Fees Receipt By Receipt id tiles ********************** -->
+		<definition name="/receiptByReceiptId.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Fees Receipt By Receipt id" />
+			<put-attribute name="body" value="/jsp/Account/receiptByReceiptId.jsp" />
+		</definition>
+	<!-- ********************************************************************** -->
+	
+	<!-- *************************** Account Report Tiles ************************* -->
+		
+		<!-- *********************Gym Payment Details By One Date tiles********************** -->
+		<definition name="/paymentDetailsByoneDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Payment Details By Single Date" />
+			<put-attribute name="body" value="/jsp/Account/paymentDetailsByOneDate.jsp" />
+		</definition>
+		
+		<!-- *********************Gym Payment Details Between Date tiles********************** -->
+		<definition name="/paymentDetailsBetweenDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Payment Details Between Date" />
+			<put-attribute name="body" value="/jsp/Account/paymentDetailsBetweenDate.jsp" />
+		</definition>
+		
+		<!-- *********************Gym Total Payment Details By Id********************** -->
+		<definition name="/totalpaymentDetailsById.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Total Payment Details By Id" />
+			<put-attribute name="body" value="/jsp/Account/totalPaymentDetailById.jsp" />
+		</definition>
+		
+		<!-- *********************Gym Audit********************** -->
+		<definition name="/gymAudit.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Gym Audit" />
+			<put-attribute name="body" value="/jsp/Account/gymAuditReport.jsp" />
+		</definition>
+		
+		<definition name="/openPendingFeesOnlyReport.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Gym Audit" />
+			<put-attribute name="body" value="/jsp/Account/openPendingFeesOnlyReport.jsp" />
+		</definition>
+		<definition name="/paymentUpdateTrack.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Gym Audit" />
+			<put-attribute name="body" value="/jsp/Account/paymentUpdateTrack.jsp" />
+		</definition>
+		
+		
+		<!-- *********************ledger master tiles************************ -->
+		
+		<definition name="/ledgerMaster.tiles" extends="gymLayout">
+			<put-attribute name="title" value="ledger master" />
+			<put-attribute name="body" value="/jsp/Account/ledgerMaster.jsp" />
+		</definition>
+		<!--*************************Bank Journal details ********************  -->
+		<definition name="/openBankJournalDetails.tiles" extends="gymLayout">
+			<put-attribute name="title" value="openBankJournalDetails" />
+			<put-attribute name="body" value="/jsp/Account/openBankJournalDetails.jsp" />
+		</definition>
+		<!-- *********************Package Month********************** -->
+		<definition name="/packageMonth.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Package Month"/>
+			<put-attribute name="body" value="/jsp/Account/packageMonth.jsp" />
+		</definition>
+		
+		
+		
+		<!-- *********************Assign Package Fees********************** -->
+		<definition name="/assignPackageFees.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Assign Package Fees"/>
+			<put-attribute name="body" value="/jsp/Account/assignPackageFees.jsp" />
+		</definition>
+	<!-- ********************************************************************** -->
+	
+	<definition name="/ptAttendanceListByDateAndId.tiles" extends="gymLayout">
+		<put-attribute name="title" value="Attendance" />
+		<put-attribute name="body" value="/jsp/PersonalTrainer/attendanceListBetweenDateById.jsp"/>
+	</definition>
+	
+	
+	
+	<!-- *************************** Message Tiles ************************* -->
+		<!-- ********************* Configure Connection tiles ********************** -->
+		<definition name="/configureConnection.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Configure Connection" />
+			<put-attribute name="body" value="/jsp/Common/configureConnection.jsp" />
+		</definition>
+		
+		<!--  *********************** Send Message to Member ****************** -->
+		<definition name="/sendMessageToMember.tiles" extends="gymLayout" >
+			<put-attribute name="tiles" value="send Message"/>
+			<put-attribute name="body" value="/jsp/Common/sendMessageToMember.jsp"/>
+		</definition>
+		<definition name="/messageSending.tiles" extends="gymLayout" >
+			<put-attribute name="tiles" value="send Message"/>
+			<put-attribute name="body" value="/jsp/Common/messageSending.jsp"/>
+		</definition>
+	<!-- ********************************************************************** -->
+		<!--  *********************** Send Email to Member ****************** -->
+		<definition name="/updateEmailAndPass.tiles" extends="gymLayout" >
+			<put-attribute name="tiles" value="Email Setting"/>
+			<put-attribute name="body" value="/jsp/Common/updateEmailSetting.jsp"/>
+		</definition>
+		<definition name="/sendEmailToMember.tiles" extends="gymLayout" >
+			<put-attribute name="tiles" value="send Email"/>
+			<put-attribute name="body" value="/jsp/Common/sendEmailToMember.jsp"/>
+		</definition>
+		<definition name="/emailSending.tiles" extends="gymLayout" >
+			<put-attribute name="tiles" value="send Email"/>
+			<put-attribute name="body" value="/jsp/Common/emailSending.jsp"/>
+		</definition> 
+	<!-- *************************** Expenses Tiles ************************* -->
+		<!-- ********************* Expense Master tiles ********************** -->
+		<definition name="/expenseMaster.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Expenses Type" />
+			<put-attribute name="body" value="/jsp/Account/expenseMaster.jsp" />
+		</definition>
+	<!-- ********************************************************************** -->
+	<!-- ********************* Expense Details Between Dates tiles ********************** -->
+		<definition name="/expenseDetailsByDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Expenses Details By Date" />
+			<put-attribute name="body" value="/jsp/Account/expenseDetailsByDate.jsp" />
+		</definition>
+	<!-- ********************************************************************** -->
+	<!-- ********************* Expense Details By Date tiles ********************** -->
+		<definition name="/expenseDetailsByoneDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Expenses Details By One Date" />
+			<put-attribute name="body" value="/jsp/Account/expenseDetailsByOneDate.jsp" />
+		</definition>
+	<!-- ********************* Update Tax tiles ********************** -->
+		<definition name="/updateTax.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Update Tax" />			
+			<put-attribute name="body" value="/jsp/Account/updateTax.jsp" />						
+		</definition>
+		<!-- ********************* Update Registration Fee tiles ********************** -->
+		<definition name="/updateRegistrationFee.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Update Registration Fee" />			
+			<put-attribute name="body" value="/jsp/Account/updateRegistrationFee.jsp" />						
+		</definition>
+		<!-- ********************* Debit Account Details By Date tiles ********************** -->
+		<definition name="/DebitedDetailsByDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Debit Details By One Date" />
+			<put-attribute name="body" value="/jsp/Account/DebitedAmountByDate.jsp" />
+		</definition>
+		<!-- ********************* Credit Details By Date tiles ********************** -->
+		<definition name="/CreditDetailsByDate.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Credit Details By One Date" />
+			<put-attribute name="body" value="/jsp/Account/creditedAmountByDate.jsp" />
+		</definition>
+		<!-- ********************* revenueReport tiles ********************** -->
+		<definition name="/revenueReport.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Credit Details By One Date" />
+			<put-attribute name="body" value="/jsp/Account/revenueReport.jsp" />
+		</definition>
+	
+	<definition name="/raj.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Credit Details By One Date" />
+			<put-attribute name="body" value="/jsp/raj.jsp" />
+		</definition>
+		
+		<definition name="/seachAllMembers.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Search Members" />
+			<put-attribute name="body" value="/jsp/Member/SearchAllMembers.jsp" />
+		</definition>
+		
+		<!-- ********************* Member Expiry Details Report ********************** -->
+		<definition name="/memberExpiryReport.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Member Expiry Details Report" />
+			<put-attribute name="body" value="/jsp/Member/MemberExpiryReport.jsp" />
+		</definition>
+		
+		<!-- *********************Packagewise Payment details between two dates JSP Page ********************** -->
+		<definition name="/packagewisePaymentReport.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Packagewise Payment details Report" />
+			<put-attribute name="body" value="/jsp/Account/packagewisePaymentReport.jsp" />
+		</definition>
+		
+		
+		<!-- *************Member Birthday details between date tiles****************** -->
+			<definition name="/birthDayBetweenDateReport.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Birth day between report"/>
+			<put-attribute name="body" value="/jsp/Member/birthDayBetweenDateReport.jsp" />
+		</definition>
+		
+			<!-- *************Member Anniversary details between date tiles****************** -->
+			<definition name="/anniversaryBetweenDateReport.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Anniversary day between report"/>
+			<put-attribute name="body" value="/jsp/Member/anniversaryBetweenDateReport.jsp" />
+		</definition>
+		
+		<!-- UploadData -->
+		<definition name="/uploadData.tiles" extends="gymLayout">
+			<put-attribute name="title" value="Upload Data to ESSL machin"/>
+			<put-attribute name="body" value="/jsp/Member/esslDataUpload.jsp" />
+		</definition>
+		<!-- open MemberBodyDetails-->
+		<definition name="/MemberBodyDetails.tiles" extends="gymLayout">
+		<put-attribute name="title" value="MemberBodyDetails"/>
+			<put-attribute name="body" value="/jsp/Member/memberBodyDetails.jsp" />
+		
+		</definition>
+			<!-- *************Member Body details report between date tiles****************** -->
+		<definition name="/MemberBodyDetailsReport.tiles" extends="gymLayout">
+	     <put-attribute name="title" value="MemberBodyDetailsMessage"/>
+			<put-attribute name="body" value="/jsp/Member/memberBodyDetailsReport.jsp" />	
+		
+		
+		</definition>
+		
+</tiles-definitions>
+ 

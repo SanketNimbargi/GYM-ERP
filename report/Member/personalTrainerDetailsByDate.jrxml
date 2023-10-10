@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="personalTrainerDetailsByDate" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="585ff44f-6b03-4f71-bfe4-a611cfb3454f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="personalTrainerId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="addressPT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alternateContactNoPT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contactNoPT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dateOfBirthPT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emailIdPT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="firstNamePT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="genderPT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="joiningDatePT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lastNamePT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="middleNamePT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statusPT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="d4449016-bb46-4e05-9b48-e636f1eab86c" x="151" y="0" width="481" height="35" backcolor="#CCCCCC"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="9503fe89-3b50-48fa-9dcd-07a15dc187f9" x="183" y="0" width="429" height="35"/>
+				<textElement>
+					<font fontName="Times New Roman" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Personal Trainer Details Between Date]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9e98ae0c-c6ef-4135-9c35-5d64dd1ee297" x="163" y="38" width="85" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="90d9bf88-e3a0-4f36-af93-7a074679bf7e" x="471" y="38" width="71" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="79b24f85-c107-4707-a1f8-74ef6ed76f6f" x="248" y="38" width="67" height="20"/>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d67e505-7a3f-4604-8543-5ccf0747286d" x="542" y="38" width="73" height="20"/>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="6c87c5b8-5b5e-401d-b616-84f9b9a6fdf8" x="0" y="0" width="802" height="36" forecolor="#000000" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="847e6186-4afb-4534-9392-919d8097977f" x="11" y="0" width="60" height="36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[PT Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="10c8b711-05b1-42b3-81d9-21d63696df6e" x="71" y="0" width="300" height="36"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[ Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="adc94421-8170-4c6a-8a75-9409d173f1f7" x="371" y="0" width="100" height="36"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ba381d29-ab3d-46d6-b34a-90d4899f57dc" x="571" y="0" width="100" height="36"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="092b9b09-29a2-4d8c-b542-b18a2064c006" x="671" y="0" width="100" height="36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Contact No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d21eaedb-2f7e-4ca2-9643-eb81df66d7ae" x="471" y="0" width="100" height="36"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Joining Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement uuid="0b7ec4a2-0ed2-4396-9f22-c8be819fe483" x="0" y="0" width="71" height="30"/>
+				<box topPadding="0" leftPadding="10" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PT"+$F{personalTrainerId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5425e8a8-925b-4499-870e-def8f63a5f9e" x="71" y="0" width="300" height="30"/>
+				<box topPadding="0" leftPadding="10" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstNamePT}+"  "+$F{middleNamePT}+"  "+$F{lastNamePT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fdebed21-c304-41ba-81c6-73bc7ac157dd" x="371" y="0" width="100" height="30"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{genderPT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9bb82ae1-5088-4c87-9918-7a4b5a33ed4a" x="571" y="0" width="100" height="30"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{addressPT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="abcb7b66-721f-4bda-8f73-21a380d9bcf7" x="671" y="0" width="121" height="30"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contactNoPT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="73dcc9f3-574e-4847-8a97-15d6714f84bb" x="471" y="0" width="100" height="30"/>
+				<box topPadding="0" leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse($F{joiningDatePT}))
+$F{joiningDatePT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

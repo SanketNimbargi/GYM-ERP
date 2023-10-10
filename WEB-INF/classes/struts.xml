@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	
+	
+	<include file="member_struts.xml"></include>
+	<include file="pt_struts.xml"></include>
+	<include file="account_struts.xml"></include>
+	<include file="login_struts.xml"></include>
+	<include file="json_struts.xml"></include>
+	<include file="message_struts.xml"></include>
+	<include file="admin_struts.xml"></include>
+	<!-- <include file="loadJspPage_struts.xml"></include> -->
+ 
+ 
+    
+	<package name="default" extends="struts-default">
+	
+		<!-- Sete result types -->
+		<result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+            <result-type name="jasper" class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+        </result-types>
+		
+		<!-- Login Interceptor -->
+		<interceptors>
+		
+			<interceptor class="com.om.interceptor.LoginInterceptor" name="loginInterceptor"></interceptor>
+			<!-- <interceptor name="token" class="org.apache.struts2.interceptor.TokenInterceptor"/> -->
+			<!-- <interceptor name="tokenSession" class="org.apache.struts2.interceptor.TokenSessionStoreInterceptor"/> -->
+			
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+				<!-- <interceptor-ref name="token" /> -->
+			</interceptor-stack>
+		</interceptors>
+		
+ 
+		<!-- Global Results  -->
+		<global-results>
+			<result name="login">/login.jsp</result>
+			<result name="exception">/error.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="driverconnecterror">/error.jsp</result>
+		</global-results>
+		
+		<!-- Exception mapping for exception handling -->
+		<global-exception-mappings>
+		    <exception-mapping exception="java.lang.reflect.InvocationTargetException" result="exception"/>
+		    <exception-mapping exception="org.hibernate.SessionException" result="exception"/>
+		    <exception-mapping exception="org.hibernate.TransactionException" result="exception"/>
+		    <exception-mapping exception="org.hibernate.exception.JDBCConnectionException" result="driverconnecterror" />
+		     <exception-mapping exception="java.lang.NullPointerException" result="error" />
+		     
+		    
+		</global-exception-mappings>
+		<action name="loginAction" class="com.om.login.action.LoginAction" method="login">			 
+			<result name="success">/login.jsp</result>			
+		</action>
+		
+	</package>
+</struts>

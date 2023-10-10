@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<include file="admin_json_struts.xml"></include>
+
+	<package name="admin" extends="login">
+		
+		<!-- ************************** Admin Actions ***************************** -->
+		<!--  Backup action -->
+		<action name="backup" class="com.om.admin.action.BackUpAction" method="backup">
+			<result name="success" type="tiles">/adminHome.tiles</result>
+		</action> 
+		<!--  restore action -->
+		<action name="restore" class="com.om.admin.action.BackUpAction" method="restore">
+			<result name="success" type="tiles">/restore.tiles</result>
+		</action> 
+		
+		<action name="restoreBackUp" class="com.om.admin.action.BackUpAction" method="restoreBackUp">
+			<result name="success" type="tiles">/restore.tiles</result>
+		</action> 
+		
+		<!--*********************************************************************************  -->
+		<!-- **************************** New User Registration *********************** -->
+			<!--  Open New User Registration on Menu Action -->
+			<action name="createUser" class="com.om.admin.action.CreateUserAction" method="createUser">
+			   <interceptor-ref name="loginStack" /> 
+				<result name="success" type="tiles">/createUser.tiles</result>
+			</action> 
+			<!--  Save New User Registration-->
+			<action name="saveUserDetails" class="com.om.admin.action.CreateUserAction" method="saveUserDetails">
+			   <interceptor-ref name="loginStack" /> 
+			    <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/createUser.tiles</result>
+				<result name="invalid.token" type="tiles">/createUser.tiles</result>
+			</action> 
+			<!--  Update New User Registration-->
+			<action name="updateUserDetails" class="com.om.admin.action.CreateUserAction" method="updateUserDetails">
+			   <interceptor-ref name="loginStack" /> 
+			    <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/createUser.tiles</result>
+				<result name="invalid.token" type="tiles">/createUser.tiles</result>
+			</action> 
+			<!--  Update New User Registration-->
+			<action name="removeUserDetails" class="com.om.admin.action.CreateUserAction" method="removeUserDetails">
+			   <interceptor-ref name="loginStack" /> 
+			    <interceptor-ref name="token"/>
+				<result name="success" type="tiles">/createUser.tiles</result>
+				<result name="invalid.token" type="tiles">/createUser.tiles</result>
+			</action> 
+		<!--*********************************************************************************  -->
+		
+	</package>
+</struts>
